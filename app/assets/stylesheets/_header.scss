@@ -280,7 +280,8 @@ button.navbar-toggle:hover {
 }
 
 .nav-absolute{
-  position: absolute !important;
+  // position: absolute !important;
+  position: fixed;
   top:20px;
   left: 20px;
   background: transparent !important;

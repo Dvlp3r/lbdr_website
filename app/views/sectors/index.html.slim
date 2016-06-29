@@ -5,7 +5,7 @@
       .banner-content style='background-image: url("#{banner.photo(:big)}");'
 
   .logo-information
-    .col-md-10.slider_leftpart
+    .col-md-10
 
       .col-md-3.text-left
 
@@ -14,7 +14,8 @@
         - @banners.each do |banner|
 
           .banner-description.hide
-            h2 =banner.title.html_safe unless banner.nil?
+            h2
+              b =banner.title.html_safe unless banner.nil?
             p =banner.description.html_safe unless banner.nil?
 
     .col-md-2.text-left
