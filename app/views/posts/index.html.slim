@@ -14,7 +14,7 @@
         - @banners.each do |banner|
 
           .banner-description.hide
-            h2 =banner.title.html_safe unless banner.nil?
+            h1 =banner.title.html_safe unless banner.nil?
             p =banner.description.html_safe unless banner.nil?
 
     .col-md-2.text-left

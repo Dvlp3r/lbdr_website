@@ -19,7 +19,7 @@ created_sectors = Sector.create(sectors)
 brands = [
   name: 'name of brand',
   url: 'www.url.com',
-  description: 'the description'
+  description: 'the description',
   brand_photo_file_name: '',
   logo_for_brand_file_name: ''
 ]
