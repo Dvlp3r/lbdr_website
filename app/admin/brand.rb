@@ -1,6 +1,6 @@
 ActiveAdmin.register Brand do
 	permit_params :name, :description, :url, :brand_photo, :logo_for_brand, :sector_id, :_wysihtml5_mode, :new_investment_id
-	menu parent: "Sectors", priority: 1, label: "Brand"
+	menu parent: "Brands", priority: 1, label: "Brand"
 
   filter :name
   filter :url
