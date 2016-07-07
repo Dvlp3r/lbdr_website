@@ -59,9 +59,9 @@ Rails.application.configure do
   config.paperclip_defaults = {
     storage: :s3,
     s3_credentials: {
-      bucket: 'lbdrimages',
-      access_key_id: 'AKIAIU7V3FLDYCXEIZ7A',
-      secret_access_key: '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' 
+      bucket: 'lbdr-development',
+      access_key_id: 'AKIAI244XHG7LQB4OGDA',
+      secret_access_key: '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' 
     }
   }
 end
