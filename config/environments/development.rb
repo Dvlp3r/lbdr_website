@@ -58,10 +58,12 @@ Rails.application.configure do
 
   config.paperclip_defaults = {
     storage: :s3,
+    url: ":s3_domain_url",
+    path: ":class/:id/:attachment/:style/:filename",
     s3_credentials: {
       bucket: 'lbdr-development',
       access_key_id: 'AKIAI244XHG7LQB4OGDA',
-      secret_access_key: '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' 
+      secret_access_key: 'VniI3zcZGCDxIcQmvwYtsAr3r9eYHdLwd1ALvmB0'
     }
   }
 end
