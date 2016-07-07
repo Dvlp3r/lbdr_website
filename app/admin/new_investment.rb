@@ -1,6 +1,6 @@
 ActiveAdmin.register NewInvestment do
   permit_params :photo, :title, :description
-  menu parent: "Sectors", priority: 2, label: "New Investment"
+  menu parent: "New Investment", priority: 2, label: "New Investments"
 
   filter :title
   filter :description

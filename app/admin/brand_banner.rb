@@ -1,6 +1,6 @@
 ActiveAdmin.register BrandBanner do
   permit_params :title, :description, :photo
-  menu parent: "Sectors", priority: 2, label: "Brand Banner"
+  menu parent: "Brands", priority: 2, label: "Brand Banner"
 
   filter :title
   filter :description
