@@ -60,8 +60,8 @@ Rails.application.configure do
     storage: :s3,
     s3_credentials: {
       bucket: 'lbdrimages',
-      access_key_id: 'AKIAJFOY26XW54RN64HA',
-      secret_access_key: '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' 
+      access_key_id: 'AKIAIU7V3FLDYCXEIZ7A',
+      secret_access_key: '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' 
     }
   }
 end
