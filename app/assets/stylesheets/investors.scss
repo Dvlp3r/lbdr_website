@@ -6,8 +6,8 @@
     font-family: "Helvetica Neue",helvetica,sans-serif;
     padding:0px;
     margin:0px;
-    color: #1c1c1c;
-    
+    color: black;
+
     .investor_link{
     }
     .investor_link, .investors_link a{
@@ -23,7 +23,7 @@
 
     .investor_text{
         height:inherit;
-        
+
         padding: 30px 25px 0 25px;
 
         @media (min-width: $screen-md-min){
@@ -60,7 +60,7 @@
         background-repeat: no-repeat;
 
         height: 300px;
-        
+
         @media (min-width: $screen-md-min){
             height:100vh;
         }
@@ -88,16 +88,16 @@
         padding: 15px 45px 15px 15px;
 
         cursor: pointer;
-        font-size: 0.85em;
+        font-size: 1.05em;
         letter-spacing: 0.25px;
         text-transform: uppercase;
         position: relative;
         -webkit-transition: all .2s ease-out;
         transition: all .2s ease-out;
 
-        background: #5590cf;
-        color: #fff;
-        border: 1px solid #5590cf;
+        background: rgba(33,33,33,0.2);
+        color: white;
+        border: 0.1px solid #5590cf;
 
         border-radius: 0px;
         font-weight: bold;
@@ -113,7 +113,7 @@
             right: 15px;
             -webkit-transition: all .2s ease-out;
             transition: all .2s ease-out;
-            
+
             -webkit-background-size: 10px auto;
             background-size: 10px auto;
 
@@ -128,7 +128,7 @@
             transform: translateY(-50%) rotate(0deg);
         }
 
-        
+
 
         &.collapsed{
             background: #e9eff5;
