@@ -112,7 +112,7 @@ h1 {
   ul{
 
     padding: 0px;
-    
+
     li, h2, h3, h4, p, a{
       margin:0px;
       padding:0px;
@@ -133,8 +133,9 @@ h1 {
       }
       h3{
         font-weight: 300;
-        font-size: 20px;
+        font-size: 28px;
         margin: 5px 0 0 0;
+        font-family: 'Alegreya Sans SC', sans-serif;
       }
       h4{
         font-size: 12px;
@@ -165,7 +166,7 @@ h1 {
   }
 
   .pagination{
-    
+
     .next, .last, .prev, .first{
       display: none;
     }
