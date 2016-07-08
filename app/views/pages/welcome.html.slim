@@ -73,7 +73,7 @@ section.section_area.with_padding
 
 
     .container.text-center
-      h3.boldtext =@content[0].title.html_safe unless @content[0].nil?
+      h1.boldtext =@content[0].title.html_safe unless @content[0].nil?
       p.text-muted
         =@content[0].description.html_safe unless @content[0].nil?
 
@@ -96,5 +96,5 @@ section.section_area.with_padding
 
 
     .container.text-center
-      h3.boldtext =@content[1].title.html_safe unless @content[1].nil?
+      h1.boldtext =@content[1].title.html_safe unless @content[1].nil?
       =@content[1].description.html_safe unless @content[1].nil?
