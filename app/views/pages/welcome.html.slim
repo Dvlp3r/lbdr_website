@@ -3,10 +3,10 @@
   .banner-body
     - @banners.each do |banner|
 
-      - unless banner.sector.nil?
-        .banner-content style='background-image: url("#{banner.sector.sector_photo(:big)}");'
-      - else
+      - unless banner.nil?
         .banner-content style='background-image: url("#{banner.photo(:big)}");'
+      - else
+        .banner-content style='background-image: url("#{banner.sector.sector_photo(:big)}");'
 
 
   .logo-information
@@ -21,8 +21,8 @@
         - @banners.each do |banner|
 
           .banner-description.hide
-            h1 =@banners[0].title.html_safe unless @banners[0].nil?
-            p =@banners[0].description.html_safe unless @banners[0].nil?
+            h1 = banner.title.html_safe unless banner.nil?
+            p = banner.description.html_safe unless banner.nil?
 
     .col-md-2.text-left
 

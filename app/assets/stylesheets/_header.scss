@@ -1,7 +1,7 @@
 // Navigation
 .navbar {
-  height: 60px;
-  width: 106px;
+  height: 65px;
+  width: 400px;
 }
 
 .navbar, .navmenu {
@@ -334,6 +334,15 @@ button.navbar-toggle:hover {
     @media (min-width: $screen-md-min){
 
     }
+  }
+
+  .sidebar-logo-show {
+    width: 60%;
+    margin: 0 0 6% 2%;
+  }
+
+  .sidebar-logo-hide {
+    display: none;
   }
 
   .follow-me-icons{

@@ -1,6 +1,6 @@
 ActiveAdmin.register Sector do
   permit_params :name, :description, :icon_image,  :sector_photo, :_wysihtml5_mode, :order
-  menu parent: "Sectors", priority: 2, label: "Sector"
+  menu parent: "Sectors", priority: 5, label: "Sector"
 
 
   index do

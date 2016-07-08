@@ -17,9 +17,12 @@ nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" 
       = link_to '<i class="fa fa-linkedin-square fa-2"></i>'.html_safe, '#'
       = link_to '<i class="fa fa-facebook fa-2"></i>'.html_safe, 'https://www.facebook.com/VanDutchGroup'
 
-div class=(current_page?("/") ? 'navbar navbar-default navbar-fixed-top nav-absolute' : 'navbar navbar-default navbar-fixed-top')
+div class=(current_page?("/") ? 'navbar navbar-default navbar-fixed-top nav-absolute' : 'navbar navbar-default navbar-fixed-top') id="myNavmenu"
   
   button id="nav-icon1" class=(current_page?("/") ? 'nav-home' : 'nav-in') type="button" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body"
     span
     span
     span
+
+  
+  = link_to image_tag('lbdr.svg'), root_path, :class=>(current_page?("/") ? "sidebar-logo-hide" : "sidebar-logo-show")
