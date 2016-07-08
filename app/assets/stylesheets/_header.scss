@@ -337,8 +337,11 @@ button.navbar-toggle:hover {
   }
 
   .sidebar-logo-show {
-    width: 60%;
-    margin: 0 0 6% 2%;
+    
+    img{
+      width: 60%;
+      margin: 0 0 6% 2%;
+    }
   }
 
   .sidebar-logo-hide {
