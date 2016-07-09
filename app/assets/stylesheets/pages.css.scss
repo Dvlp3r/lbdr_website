@@ -57,12 +57,12 @@ img.fotorama__img {
   @media (min-width: $screen-md-min){
     font-size: 1.75em;
   }
-    
+
   h2{
     font-size: 22px;
-    
+
     @media (min-width: $screen-md-min){
-      font-size: 30px;  
+      font-size: 30px;
     }
   }
 
@@ -81,10 +81,10 @@ img.fotorama__img {
     }
   }
 
-  
+
   ul.nav {
     display: inline-block;
-    
+
 
     @media (min-width: $screen-md-min){
       height: 240px;
@@ -145,9 +145,9 @@ img.fotorama__img {
 
   .tab-pane{
     &.active{
-      
+
       .governance-description{
-        
+
         margin-left: 0%;
 
         animation: text_left_come 1s ease;
@@ -179,7 +179,7 @@ img.fotorama__img {
     display: inline-block;
     li {
       display: inline;
-      
+
       a {
           border: solid 1px #555555;
           text-transform: uppercase;
@@ -313,13 +313,14 @@ li.active a {
 }
 
 .governance-section {
+  padding-bottom: 100px;
   background-color: #ededed;
   margin-top: 40px;
   clear: both;
 }
 
 #executive-committee{
-  
+
 }
 
 .governance-description {
@@ -396,7 +397,7 @@ li.active a {
   background:url("/arrow.png");
   width:31px;
   height:17px;
-  display:inline-block;    
+  display:inline-block;
 }
 
 @keyframes arrow_play {
@@ -426,11 +427,11 @@ li.active a {
 
 // contact Page
 .contact_back{
-  background:url('http://33.media.tumblr.com/c42ce0cd442f64d02a5404dcf261e7ec/tumblr_nbz2v2Zffi1tjsogwo1_250.gif'); 
-  height:100vh; 
+  background:url('http://33.media.tumblr.com/c42ce0cd442f64d02a5404dcf261e7ec/tumblr_nbz2v2Zffi1tjsogwo1_250.gif');
+  height:100vh;
   width: 100%;
   min-height: 620px;
-  
+
   h1{
     color: white;
     font-weight: bold;
@@ -443,17 +444,17 @@ li.active a {
 
     input, textarea{
       border-radius: 50px;
-      
+
       font-weight: 100;
       color: #000 !important;
       text-align: center;
-      
+
       overflow: hidden;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       padding: 0px;
       border: solid 1px grey;
       margin-top: 12px;
-      
+
       display:inline-block;
 
       width:200px;
@@ -482,7 +483,7 @@ li.active a {
       text-transform: uppercase;
       font-weight: bold;
       font-size: 17px;
-      color: white !important; 
+      color: white !important;
 
       @media (min-width: $screen-md-min){
         font-size:20px;
