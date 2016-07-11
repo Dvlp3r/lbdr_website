@@ -36,6 +36,11 @@ form {
   margin-right: auto;
 }
 
+@media (min-width: 768px) {
+.container.brand {
+  padding-bottom: 250px;
+ }
+}
 // .row {
 //   border: 2px solid grey;
 //   border-radius: 2px;
