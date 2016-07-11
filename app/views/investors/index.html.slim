@@ -7,17 +7,17 @@
   .col-md-7.investor_text
 
     .investor_link
-      =link_to pages_group_path do 
+      =link_to pages_group_path do
         span GROUP
-      
+
 
       = " \/ "
 
-      =link_to "" do 
+      =link_to "" do
         span BOARD OF DIRECTORS
-    
 
-    h1 =@investor_content.title unless @investor_content.nil?
+
+    h1.investors =@investor_content.title unless @investor_content.nil?
 
     .subtitle =@investor_content.description unless @investor_content.nil?
 
@@ -25,7 +25,7 @@
       - @investors.each do |investor|
         .panel.panel-default
           div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse#{investor.id}" =(investor.firstname + " " + investor.lastname)
-          .invest_content id="collapse#{investor.id}" class="panel-collapse collapse" 
+          .invest_content id="collapse#{investor.id}" class="panel-collapse collapse"
             .panel-body =investor.description.html_safe
 
 div style="clear:both"
