@@ -1,10 +1,8 @@
 .banner.brand-banner
+
   .banner-body
-    .banner-brand-content style='background-image: url("#{banner.photo.url(:big)}");'
-      h1 = @brands.title
-
-
-
+    - @banners.each do |banner|
+      .banner-content style='background-image: url("#{banner.photo(:big)}");'
 
   .logo-information
     .col-md-10.slider_leftpart
