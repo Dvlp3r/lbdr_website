@@ -25,7 +25,7 @@
       a data-toggle="pill" href="#temp_#{sector.id}" style='background-image: url("#{sector.sector_photo(:big)}");'
         span =sector.name
 
-.container
+.container.brand
   .tab-content.col-md-12
     - @sectors.each do |sector|
       div id="#temp_#{sector.id}" class="tab-pane brand-tab"
