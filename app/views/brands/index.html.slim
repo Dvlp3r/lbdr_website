@@ -1,6 +1,7 @@
 .banner.brand-banner
 
   .banner-body
+    - @banners.each do |banner|
       .banner-content style='background-image: url("#{banner.photo(:big)}");'
 
   .logo-information
@@ -9,6 +10,8 @@
       .col-md-3.text-left
 
       .col-md-9.text-left
+
+        - @banners.each do |banner|
 
           .banner-description.hide
             h1 =banner.title.html_safe unless banner.nil?
@@ -22,7 +25,7 @@
       a data-toggle="pill" href="#temp_#{sector.id}" style='background-image: url("#{sector.sector_photo(:big)}");'
         span =sector.name
 
-.container.brand
+.container 
   .tab-content.col-md-12
     - @sectors.each do |sector|
       div id="#temp_#{sector.id}" class="tab-pane brand-tab"
