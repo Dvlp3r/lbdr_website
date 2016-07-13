@@ -236,7 +236,7 @@ $(function() {
       nav_bar = false;
 
       $(this).toggleClass('open');
-
+      $(".sidebar-logo-show").toggle();
       setTimeout(function(){
 
         if(nav_bar){
@@ -263,6 +263,7 @@ $(function() {
       
       if(nav_bar){
         $('#nav-icon1').removeClass('open');
+        $('.sidebar-logo-show').show();
         nav_bar = false;
       }
 
