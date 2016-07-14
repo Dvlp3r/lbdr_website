@@ -25,7 +25,10 @@
             p = banner.description.html_safe unless banner.nil?
 
     .col-md-2.text-left
-
+  
+  .info-sector
+    = link_to 'More Info', sectors_path, class: 'btn btn-green button'
+    
   .arrow
     .arrow-click
       .arrow-in
