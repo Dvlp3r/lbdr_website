@@ -1,8 +1,7 @@
 .banner.brand-banner
 
-  .banner-body
-    - @banners.each do |banner|
-      .banner-content style='background-image: url("#{banner.photo(:big)}");'
+  .banner-body-hide-slider
+    .banner-content style='background-image: url("#{@banners[0].photo(:big)}");'
 
   .logo-information
     .col-md-10.slider_leftpart
@@ -14,8 +13,8 @@
         - @banners.each do |banner|
 
           .banner-description.hide
-            h1 =banner.title.html_safe unless banner.nil?
-            p =banner.description.html_safe unless banner.nil?
+            h1 =@banners[0].title.html_safe unless banner.nil?
+            p =@banners[0].description.html_safe unless banner.nil?
 
     .col-md-2.text-left
 

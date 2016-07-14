@@ -37,9 +37,10 @@ form {
 }
 
 @media (min-width: 768px) {
-.container.brand {
-  
- }
+  .container.brand {
+    width: 100%;
+    height: 300px;
+  }
 }
 // .row {
 //   border: 2px solid grey;
