@@ -75,9 +75,6 @@ button.navbar-toggle:hover {
       height:100vh;
       min-height:610px;
     }
-
-
-
   }
   
   .btn-green {
@@ -90,7 +87,7 @@ button.navbar-toggle:hover {
     display: inline-block;
     font-size: 16px; 
   }
-  
+
   .logo-information{
     position:absolute;
     top: 0px;
@@ -102,6 +99,13 @@ button.navbar-toggle:hover {
     -moz-user-select: none;      /* Firefox */
     -ms-user-select: none;       /* Internet Explorer/Edge */
     user-select: none;
+
+    .info-sector{
+      position: absolute;
+      z-index: 200;
+      text-align: center;
+      width: 100%;
+    }
 
     .slider_leftpart{
       background-color:rgba(0,0,0,0.0);

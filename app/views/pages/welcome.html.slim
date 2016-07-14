@@ -23,12 +23,13 @@
           .banner-description.hide
             h1 = banner.title.html_safe unless banner.nil?
             p = banner.description.html_safe unless banner.nil?
+          
+            .info-sector
+              = link_to 'More Info', banner.sector, class: 'btn btn-green button'
 
     .col-md-2.text-left
-  
-  .info-sector
-    = link_to 'More Info', sectors_path, class: 'btn btn-green button'
     
+
   .arrow
     .arrow-click
       .arrow-in
