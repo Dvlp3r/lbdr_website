@@ -13,9 +13,29 @@ ActiveAdmin.register Brand do
 			f.input :name
 			f.input :url
 			f.input :description, as: :html_editor
-			f.input :brand_photo, :as => :file
-			f.input :logo_for_brand,:as => :file
+			f.input :brand_photo, :as => :file,  hint: f.object.brand_photo? ? image_tag(f.object.brand_photo.url, height: '100', width: '100') : content_tag(:span, "Upload JPG/PNG/GIF image")
+			f.input :logo_for_brand,:as => :file, hint: f.object.logo_for_brand? ? image_tag(f.object.logo_for_brand.url, height: '100', width: '100') : content_tag(:span, "Upload JPG/PNG/GIF image")
 		end
 		f.button 'Commit'
 	end
+
+	show do
+    attributes_table do
+      row :id
+      row :sector
+      row :new_investment
+      row :name
+      row :url
+      row :description
+      row :created_at
+      row :updated_at
+      row :brand_photo do |image|
+        image_tag(image.brand_photo.url, height: '150', width: '150')
+      end
+      row :logo_for_brand do |image|
+        image_tag(image.logo_for_brand.url, height: '150', width: '150')
+      end
+    end
+    active_admin_comments
+  end
 end

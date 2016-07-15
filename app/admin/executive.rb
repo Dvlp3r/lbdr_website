@@ -9,9 +9,25 @@ ActiveAdmin.register Executive do
       f.input :first_name
       f.input :last_name
       f.input :position, :as => :select, :collection => ["Executive Committee", "Board of Directors"], :include_blank => false
-			f.input :photo, :as => :file
+			f.input :photo, :as => :file, hint: f.object.photo? ? image_tag(f.object.photo.url, height: '100', width: '100') : content_tag(:span, "Upload JPG/PNG/GIF image")
 		end
 		f.button 'Commit'
 	end
+
+  show do
+    attributes_table do
+      row :id
+      row :group_id
+      row :first_name
+      row :last_name
+      row :position
+      row :created_at
+      row :updated_at
+      row :photo do |image|
+        image_tag(image.photo.url, height: '150', width: '150')
+      end
+    end
+    active_admin_comments
+  end
 
 end
