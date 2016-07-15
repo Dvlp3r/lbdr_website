@@ -8,7 +8,8 @@
     margin:0px;
     color: black;
 
-    .investor_link{
+    .investor_link, a{
+      color: rgba(33, 33, 33, 0.2);
     }
     .investor_link, .investors_link a{
         font-size: 15px;
@@ -16,7 +17,7 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        color: #5590cf;
+        color: rgba(33, 33, 33, 0.2);
         letter-spacing: 0.25px;
         font-weight: bold;
     }
