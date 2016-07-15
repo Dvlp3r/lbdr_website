@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621010640) do
+ActiveRecord::Schema.define(version: 20160715120606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -216,6 +216,15 @@ ActiveRecord::Schema.define(version: 20160621010640) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+  end
+
+  create_table "sector_brands", force: :cascade do |t|
+    t.integer  "sector_id"
+    t.integer  "brand_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_sector_brands_on_brand_id", using: :btree
+    t.index ["sector_id"], name: "index_sector_brands_on_sector_id", using: :btree
   end
 
   create_table "sectors", force: :cascade do |t|

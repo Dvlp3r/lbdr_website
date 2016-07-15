@@ -195,3 +195,28 @@ h1 {
     }
   }
 }
+
+@media(max-width:640px) {
+  .banner {
+    .banner-body { 
+      min-height:420px !important;
+      .banner-content {
+        background-repeat: no-repeat;
+        background-size: 100% 100%; 
+        height:auto !important; 
+        min-height: 400px !important;
+      }
+    }
+    .logo-information{
+      .logo_lbdr {
+        margin-bottom: 7px; margin-top: 10px;
+      }
+      .slider_leftpart { 
+        padding-bottom:0 !important; min-height: inherit !important;
+      }
+    }
+  }
+  .banner-description h2 { 
+    font-size:18px !important;
+  }
+}

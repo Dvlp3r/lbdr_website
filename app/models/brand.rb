@@ -1,7 +1,9 @@
 class Brand < ApplicationRecord
-  belongs_to :sector
+  has_many :sector_brands
+  has_many :sectors, through: :sector_brands
+  
   belongs_to :new_investment
-
+  accepts_nested_attributes_for :sector_brands,  :allow_destroy => true
 # Brand Photo File Uploads
   has_attached_file :brand_photo,
     styles: { big: "1920x800<"},

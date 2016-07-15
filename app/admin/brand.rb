@@ -1,5 +1,5 @@
 ActiveAdmin.register Brand do
-	permit_params :name, :description, :url, :brand_photo, :logo_for_brand, :sector_id, :_wysihtml5_mode, :new_investment_id
+	permit_params :name, :description, :url, :brand_photo, :logo_for_brand, :_wysihtml5_mode, :new_investment_id, :sector_ids => []
 	menu parent: "Brands", priority: 1, label: "Brand"
 
   filter :name
@@ -8,7 +8,7 @@ ActiveAdmin.register Brand do
 
 	form do |f|
 		f.inputs "Brand Details" do
-			f.input :sector
+			f.input :sector_ids, :as => :select, :collection => Sector.all.map {|u| [u.name, u.id]}, multiple: true
 			f.input :new_investment
 			f.input :name
 			f.input :url
@@ -22,7 +22,13 @@ ActiveAdmin.register Brand do
 	show do
     attributes_table do
       row :id
-      row :sector
+      panel "Sectors" do
+        table_for brand.sector_brands do
+          column "name" do |sector_brand|
+            sector_brand.sector.name
+          end
+        end
+      end
       row :new_investment
       row :name
       row :url
