@@ -148,7 +148,7 @@ img.fotorama__img {
 
       .governance-description{
 
-        margin-left: 0%;
+        margin-left: 10%;
 
         animation: text_left_come 1s ease;
         -webkit-animation: text_left_come 1s ease;
@@ -312,6 +312,7 @@ li.active a {
   padding: 100px 0;
 }
 
+
 .governance-section {
   padding-bottom: 100px;
   background-color: #ededed;
@@ -325,21 +326,21 @@ li.active a {
 
 .governance-description {
   clear:both;
-  color: #929191;
-  font-size: 16px;
-  width: 100%;
+  color: #6b6a6a;
+  font-size: 24px;
+  width: 80%;
   display: inline-block;
 
   @media (min-width: $screen-md-min){
     padding: 0 60px;
-    font-size:19px;
+    font-size:24px;
   }
 
   h2{
     color: rgba( 30, 30 , 30, 0.7);
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 36px;
     margin: 40px 0 30px 0;
     letter-spacing: 1px;
 
