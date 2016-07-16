@@ -89,7 +89,7 @@ section.section_area.with_padding
         = link_to "#{sector_path(sector)}" do
           = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name
           .carousel-caption.mylink.twoline
-            h3 =sector.name
+            span =sector.name
         end
 
 

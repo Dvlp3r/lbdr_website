@@ -41,7 +41,12 @@ img.brand-logo-thumb {
 
 .brand-tabs {
 
-
+  .slick-active{
+    h3{
+      display: none;
+    }
+  }  
+  
   .slick-center{
     opacity: 1 !important;
     transform: scale(1.08);
@@ -49,6 +54,15 @@ img.brand-logo-thumb {
 
     a{
       color: white !important;
+    }
+
+    h3{
+      margin-left: 150px;
+      margin-right: 150px;
+      display: block;
+      color: white;
+      font-weight: bold;
+      background-color: gray;
     }
   }
 

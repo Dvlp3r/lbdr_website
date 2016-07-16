@@ -260,7 +260,7 @@ button.navbar-toggle:hover {
 
 .carousel-caption.mylink{
 
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0) !important;
   width: 100%;
   height: 100%;
   left: 0!important;
@@ -274,17 +274,23 @@ button.navbar-toggle:hover {
     padding: 26%;
   }
 
- .carousel-caption.mylink h3,
-  .carousel-caption.mylink h3 a{
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #FFF;
-  margin:0px;
- }
+  .carousel-caption.mylink span{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 80%;
+    font-size: 15px;
+    font-weight: bolder;
+    border: 2px solid white;
+    text-transform: uppercase;
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    height: 60px;
+    padding: 19px 0;
+  }
 
 .gallery_menu a:hover .carousel-caption.mylink{
-  background: rgba(0,0,0,0) !important;
+  background: rgba(0,0,0,0.5) !important;
 }
  .section_area.with_padding{
   padding-top:80px;

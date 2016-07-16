@@ -96,7 +96,7 @@ $(function() {
 
         $('.banner-body').slickNext();
 
-      }, 5000);
+      }, 10000);
     }
 
     try{
