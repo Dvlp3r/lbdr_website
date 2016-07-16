@@ -17,6 +17,23 @@
   - SectorBrand.all.where(sector_id: [params[:id]]).each do |var|
     .col-md-4 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)
 .container-fluid
+.col-md-12
+  .gallery_menu.row
+    - @sectors.each_with_index do |sector, i|
+      .col-md-3.col-sm-6.sector_thumb.no-padding
+
+        = link_to "#{sector_path(sector)}" do
+          = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name
+          .carousel-caption.mylink.twoline
+            h3 =sector.name
+        end
+
+
+      - if((i + 1) % 4 == 0)
+        .clear_fix_site
+
+
+
 - if current_user.try(:admin?)
   = link_to 'Edit', edit_sector_path(@sector), class: 'btn btn-danger'
   = link_to 'Back', sectors_path, class: 'btn btn-default'
