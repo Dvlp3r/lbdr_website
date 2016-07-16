@@ -13,6 +13,10 @@
 .fadeInBlock.container.description.col-md-8.col-md-offset-2
   = @new_investment.description.html_safe
 
+.col-md-12
+  h3[style="text-align: center; font-size: 35px; font-weight: bold"]
+    | Brands
+
 .fadeInBlock.container.col-md-8.col-md-offset-2.list-brands-by-sector
   - Brand.all.where(new_investment_id: [params[:id]]).each do |var|
     .col-md-4 = link_to image_tag(var.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var)
