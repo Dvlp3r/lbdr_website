@@ -35,6 +35,7 @@ img.brand-photo-big {
 
 img.brand-logo-thumb {
   // border: 1px solid $black;
+  width: 65%;
   padding: 10px;
   margin: 30px 5px;
 }
@@ -45,7 +46,7 @@ img.brand-logo-thumb {
   .slick-center{
     opacity: 1 !important;
     transform: scale(1.08);
-    
+
 
     a{
       color: white !important;
@@ -89,7 +90,7 @@ img.brand-logo-thumb {
       }
 
       span{
-        
+
         background-color: rgba(0, 0, 0, 0.5);
         width: 80%;
         border: 2px solid white;
@@ -115,7 +116,7 @@ img.brand-logo-thumb {
 
     &.active{
       a{
-        
+
       }
     }
   }
@@ -164,11 +165,11 @@ img.brand-logo-thumb {
 }
 
 .brand-banner{
-  
+
   .banner-body-hide-slider{
     min-height: inherit !important;
   }
-  
+
   .slider_leftpart{
     height: 70vh !important;
     min-height: inherit !important;
@@ -176,6 +177,6 @@ img.brand-logo-thumb {
 
   .banner-content{
     height: 70vh !important;
-    min-height: inherit !important; 
+    min-height: inherit !important;
   }
 }
