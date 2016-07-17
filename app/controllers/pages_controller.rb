@@ -24,6 +24,7 @@ class PagesController < ApplicationController
     @sectors = Sector.order("order" => "asc").all
 
     #@homes = Home.order("id" => "desc").all
+    @new_investment = NewInvestment.first
 
     @banners = Banner.order("order" => "asc").all
 

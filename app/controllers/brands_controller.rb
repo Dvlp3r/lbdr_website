@@ -7,11 +7,13 @@ class BrandsController < ApplicationController
   def index
     @brands = Brand.all
 
-    @banners = BrandBanner.order("id" => "desc").all
+    @banners = BrandBanner.order(id: :desc)
     
     @sector = Sector.find_by(params[:id])
 
-    @sectors = Sector.order("order" => "asc").all
+    @sectors = Sector.order(order: :asc)
+
+    @new_investment = NewInvestment.first
   end
 
 

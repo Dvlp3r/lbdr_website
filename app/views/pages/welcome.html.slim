@@ -1,14 +1,15 @@
 .banner
 
   .banner-body
-    - @banners.each do |banner|
-
+    - @banners.each_with_index do |banner, index|
       - unless banner.nil?
-        .banner-content style='background-image: url("#{banner.photo(:big)}");'
+        - if index.eql?(9)
+          .banner-content style='background-image: url("#{@new_investment.photo(:big)}");'
+        -else
+          .banner-content style='background-image: url("#{banner.photo(:big)}");'
       - else
         .banner-content style='background-image: url("#{banner.sector.sector_photo(:big)}");'
-
-
+  
   .logo-information
     .col-md-10.slider_leftpart
 
@@ -21,11 +22,18 @@
         - @banners.each_with_index do |banner, index|
 
           .banner-description.hide
-            h1 = banner.title.html_safe unless banner.nil?
-            p = banner.description.html_safe unless banner.nil?
-            - unless index.eql?(0)
-              .info-sector
-                = link_to 'More Info', banner.sector, class: 'btn btn-green button'
+            - if index.eql?(9)
+              h1 = @new_investment.title.html_safe unless @new_investment.nil?
+              p = @new_investment.description.html_safe unless @new_investment.nil?
+              - unless index.eql?(0)
+                .info-sector
+                  = link_to 'More Info', new_investments_path, class: 'btn btn-green button'  
+            - else
+              h1 = banner.title.html_safe unless banner.nil?
+              p = banner.description.html_safe unless banner.nil?
+              - unless index.eql?(0)
+                .info-sector
+                  = link_to 'More Info', banner.sector, class: 'btn btn-green button'
 
     .col-md-2.text-left
     
@@ -71,6 +79,10 @@
       li.cell
         i.fa.fa-wifi.fa-2
         span link-to="#{'/sectors/' + @banners[8].sector.id.to_s}" Technology
+
+      li.cell
+        i.fa.fa-diamond.fa-2
+        span link-to="#{'/new-investment'}" New Investments
 
 
 section.section_area.with_padding
