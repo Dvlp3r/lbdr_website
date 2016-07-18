@@ -30,4 +30,13 @@ class PagesController < ApplicationController
 
     @content = Content.order("id" => "asc").all
   end
+
+  def board_member
+    @board_member = BoardMember.find(params[:id])
+  end
+
+  def executive
+    @executive = Executive.find(params[:id])
+  end
+  
 end

@@ -1,6 +1,7 @@
-ActiveAdmin.register Investor, as: "Board Member" do
+ActiveAdmin.register Investor do
   permit_params :firstname, :lastname, :description, :photo
-
+  menu parent: "Investor", priority: 1, label: "Investor"
+  
   filter :firstname
   filter :lastname
   filter :description

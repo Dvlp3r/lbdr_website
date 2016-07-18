@@ -1,0 +1,9 @@
+.row
+  .col-md-4
+  
+  .col-md-4
+    .people.col-md-12
+      .group-image style='background-image: url("#{@board_member.photo(:thumb)}")'
+      h4 ="#{@board_member.first_name} #{@board_member.last_name}"
+      p =@board_member.bio
+  .col-md-4

@@ -26,6 +26,10 @@ Rails.application.routes.draw do
   get 'new_investment_page' => 'new_investments#index', :path => 'new-investment'
 
   get 'investors_page' => 'investors#index', :path => 'investors'
+  
+  get 'board_member' => 'pages#board_member', :path => '/board_member/:id'
+  
+  get 'executive' => 'pages#executive', :path => '/executive/:id'
 
   # get 'pages/investor'
 

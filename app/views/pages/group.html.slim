@@ -68,9 +68,10 @@
             .col-md-12
               - @executive_committee.each do |exec|
                 .people.col-md-3
-                  .group-image style='background-image: url("#{exec.photo(:thumb)}")'
-                  h4 = "#{exec.first_name} #{exec.last_name}"
-                  p =exec.position
+                  = link_to "#{executive_path(exec)}" do 
+                    .group-image style='background-image: url("#{exec.photo(:thumb)}")'
+                    h4 = "#{exec.first_name} #{exec.last_name}"
+                    p =exec.position
 
         #board_of_directors.tab-pane.fade
           .governance-description.col-md-8.col-md-offset-2
@@ -80,6 +81,7 @@
             .col-md-12
               - @board_of_directors.each do |board|
                 .people.col-md-3
-                  .group-image style='background-image: url("#{board.photo(:thumb)}")'
-                  h4 ="#{board.first_name} #{board.last_name}"
-                  p =board.position
+                  = link_to "#{board_member_path(board)}" do
+                    .group-image style='background-image: url("#{board.photo(:thumb)}")'
+                    h4 ="#{board.first_name} #{board.last_name}"
+                    p =board.position
