@@ -47,8 +47,8 @@ img.brand-logo-thumb {
     h3{
       display: none;
     }
-  }  
-  
+  }
+
   .slick-center{
     opacity: 1 !important;
     transform: scale(1.08);
@@ -62,9 +62,9 @@ img.brand-logo-thumb {
       margin-left: 150px;
       margin-right: 150px;
       display: block;
-      color: white;
+      color: #212121;
       font-weight: bold;
-      background-color: gray;
+      font-size: 32px;
     }
   }
 
@@ -170,7 +170,7 @@ img.brand-logo-thumb {
     text-transform: uppercase;
     font-weight: bold;
     margin-bottom: 40px;
-    font-size: 25px;
+    font-size: 40px;
 
     @media (min-width: $screen-md-min){
       font-size: 40px;
