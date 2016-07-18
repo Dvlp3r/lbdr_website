@@ -1,7 +1,5 @@
 ActiveAdmin.register Executive do
   permit_params :first_name, :last_name, :position, :photo, :governance_type, :group_id
-  menu parent: "Group", priority: 2, label: "Executives"
-
 
   form do |f|
 		f.inputs "Executive" do

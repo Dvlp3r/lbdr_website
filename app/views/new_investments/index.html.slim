@@ -24,3 +24,54 @@
 - if current_user.try(:admin?)
   = link_to 'Edit', edit_sector_path(@new_investment), class: 'btn btn-danger'
   = link_to 'Back', sectors_path, class: 'btn btn-default'
+
+.col-md-12
+  .gallery_menu.row
+    - @sectors.each_with_index do | sector, i | 
+      - if(@sectors.length >= 4)
+        .col-md-3.col-sm-6.sector_thumb.no-padding
+
+          = link_to "#{sector_path(sector)}" do
+            = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name
+            .carousel-caption.mylink.twoline
+              span =sector.name
+
+
+        - if((i + 1) % 4 == 0)
+          .clear_fix_site
+
+      - elsif(@sectors.length == 1) 
+        .col-md-4.col-sm-4.sector_thumb.no-padding
+        .col-md-4.col-sm-4.sector_thumb.no-padding
+          
+          = link_to "#{sector_path(sector)}" do 
+            = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
+            .carousel-caption.mylink.twoline
+              span =sector.name 
+      
+      - elsif(@sectors.length == 2)
+        - if i == 0
+          .col-md-3.col-sm-6.sector_thumb.no-padding
+          
+          .col-md-3.col-sm-6.sector_thumb.no-padding
+            = link_to "#{sector_path(sector)}" do  
+              = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
+              .carousel-caption.mylink.twoline
+                span =sector.name
+        
+        -else 
+          .col-md-3.col-sm-6.sector_thumb.no-padding
+            = link_to "#{sector_path(sector)}" do  
+              = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
+              .carousel-caption.mylink.twoline
+                span =sector.name
+
+      - elsif(@sectors.length == 3)  
+        .col-md-4.col-sm-4.sector_thumb.no-padding
+
+          = link_to "#{sector_path(sector)}" do  
+            = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
+              .carousel-caption.mylink.twoline
+                span =sector.name 
+        
+.clearfix

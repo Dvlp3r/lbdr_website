@@ -16,6 +16,7 @@ class SectorsController < ApplicationController
   # GET /sectors/1.json
   def show
     @brands = Brand.all
+    @sectors = Sector.order(order: :asc)
   end
 
   # GET /sectors/new

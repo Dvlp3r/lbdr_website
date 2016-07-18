@@ -147,8 +147,7 @@ $(function() {
 
         console.log(page);
 
-        $(".banner-description").removeClass("show");
-        $(".banner-description").eq(currentSlide).addClass("show");
+        
       }
     });
 
@@ -276,7 +275,8 @@ $(function() {
       var slideIndex = $(this).index();
 
       $( '.banner-body' ).slickGoTo( parseInt(slideIndex) );
-
+      $('.banner-description').removeClass("show");
+      $(".banner-description").eq(slideIndex).addClass("show");
       startInterval();
     });
 
