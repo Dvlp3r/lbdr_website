@@ -73,7 +73,6 @@ img.fotorama__img {
     position: absolute;
     left: 245px;
     top: 0px;
-
     display: none;
 
     @media (min-width: $screen-md-min){
@@ -442,25 +441,19 @@ li.active a {
     padding-top: 30px;
     text-align: center;
 
-
     input, textarea{
       border-radius: 50px;
-
       font-weight: 100;
       color: #000 !important;
       text-align: center;
-
       overflow: hidden;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: 'Alegreya Sans SC', sans-serif;
       padding: 0px;
       border: solid 1px grey;
       margin-top: 12px;
-
       display:inline-block;
-
       width:200px;
       font-size: 15px;
-
       line-height: 50px;
       height: 50px;
 

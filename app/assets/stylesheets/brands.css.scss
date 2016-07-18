@@ -35,7 +35,7 @@ img.brand-photo-big {
 
 img.brand-logo-thumb {
   // border: 1px solid $black;
-  width: 65%;
+  width: 50%;
   padding: 10px;
   margin: 30px 5px;
 }
@@ -169,7 +169,7 @@ img.brand-logo-thumb {
     text-transform: uppercase;
     font-weight: bold;
     margin-bottom: 40px;
-    font-size: 40px;
+    font-size: 36px;
 
     @media (min-width: $screen-md-min){
       font-size: 40px;
