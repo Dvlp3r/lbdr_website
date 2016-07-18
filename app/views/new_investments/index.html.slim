@@ -24,3 +24,18 @@
 - if current_user.try(:admin?)
   = link_to 'Edit', edit_sector_path(@new_investment), class: 'btn btn-danger'
   = link_to 'Back', sectors_path, class: 'btn btn-default'
+
+.col-md-12
+  .gallery_menu.row
+    - @sectors.each_with_index do |sector, i|
+      .col-md-3.col-sm-6.sector_thumb.no-padding
+
+        = link_to "#{sector_path(sector)}" do
+          = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name
+          .carousel-caption.mylink.twoline
+            span =sector.name
+        end
+
+
+      - if((i + 1) % 4 == 0)
+        .clear_fix_site

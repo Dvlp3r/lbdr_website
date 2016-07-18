@@ -15,7 +15,7 @@
 
 .col-md-12
   h3[style="text-align: center; font-size: 35px; font-weight: bold"]
-    | Brands
+    | Associated Brands
 
 .container.col-md-8.col-md-offset-2.list-brands-by-sector
   - SectorBrand.all.where(sector_id: [params[:id]]).each do |var|
@@ -24,3 +24,18 @@
 - if current_user.try(:admin?)
   = link_to 'Edit', edit_sector_path(@sector), class: 'btn btn-danger'
   = link_to 'Back', sectors_path, class: 'btn btn-default'
+
+.col-md-12
+  .gallery_menu.row
+    - @sectors.each_with_index do |sector, i|
+      .col-md-3.col-sm-6.sector_thumb.no-padding
+
+        = link_to "#{sector_path(sector)}" do
+          = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name
+          .carousel-caption.mylink.twoline
+            span =sector.name
+        end
+
+
+      - if((i + 1) % 4 == 0)
+        .clear_fix_site

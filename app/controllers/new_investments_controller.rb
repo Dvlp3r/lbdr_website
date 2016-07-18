@@ -2,6 +2,7 @@ class NewInvestmentsController < ApplicationController
   
   def index
     @new_investment = NewInvestment.first
+    @sectors = Sector.order(order: :asc)
   end
 
   private
