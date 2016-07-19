@@ -191,7 +191,9 @@ li.active a {
 
 @media(max-width:640px){
 #myNavmenu {
+  img{
   position: relative;
   top: 10px;
+  }
  }
 }
