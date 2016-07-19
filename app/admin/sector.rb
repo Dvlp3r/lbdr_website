@@ -39,6 +39,9 @@ ActiveAdmin.register Sector do
       row :description
       row :created_at
       row :updated_at
+      row :sector_photo_file_name
+      row :sector_photo_file_size
+      row :sector_photo_content_type
       row :sector_photo do |image|
         image_tag(image.sector_photo.url, height: '150', width: '150')
       end

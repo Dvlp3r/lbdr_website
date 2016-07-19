@@ -24,6 +24,9 @@ ActiveAdmin.register Executive do
       row :position
       row :created_at
       row :updated_at
+      row :photo_file_name
+      row :photo_file_size
+      row :photo_content_type
       row :photo do |image|
         image_tag(image.photo.url, height: '150', width: '150')
       end
