@@ -54,15 +54,15 @@ $(function() {
         
         var page = currentSlide;
 
-        $(".tab-pane").css("display", "none");
-        $(".tab-pane").eq(page).css("display", "block");
+        $(".tab-pane-brand_courssel").css("display", "none");
+        $(".tab-pane-brand_courssel").eq(page).css("display", "block");
 
         console.log(page);
       }
     });
 
-    $(".tab-pane").css("display", "none");
-    $(".tab-pane").eq(0).css("display", "block");
+    $(".tab-pane-brand_courssel").css("display", "none");
+    $(".tab-pane-brand_courssel").eq(0).css("display", "block");
 
     console.log($(".brand-tab").eq(0));
 
