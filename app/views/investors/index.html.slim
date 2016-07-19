@@ -1,31 +1,78 @@
-.investors
-  .col-md-5
-    .row
-      - unless @investor_content.nil?
-        .investor-image  style='background-image: url("#{@investor_content.photo(:big)}");'
+.banner
 
-  .col-md-7.investor_text
+  .banner-body
+    - unless @investor_content.nil?
+      .banner-content style='background-image: url("#{@investor_content.photo(:big)}");'
 
-    .investor_link
-      =link_to pages_group_path do
-        span GROUP
+  .logo-information
+    .col-md-10.slider_leftpart
+
+      .col-md-3.text-left
+
+      .col-md-9.text-left
+
+          .banner-description.hide
+            .title
+              h1 =@investor_content.title unless @investor_content.nil?
+            .desc
+              p =@investor_content.description unless @investor_content.nil?
+
+    .col-md-2.text-left
+
+  .arrow
+    .arrow-click
+      .arrow-in
+
+.container.section
+  .group-info
+
+    .triangle
+
+    ul#tabs.nav data-tabs="pills"
+      li
+        a data-toggle="pill" href="#profile"  profile
+      li.active
+        a data-toggle="pill" href="#shareholders" shareholder
+      li
+        a data-toggle="pill" href="#investment"  investment
 
 
-      = " \/ "
+    #my-tab-content.tab-content.col-md-8.col-md-offset-2
+      #profile.tab-pane
+        p =@group.model.html_safe unless @group.nil?
+      #shareholders.tab-pane.active
+        p =@group.about.html_safe unless @group.nil?
+      #investment.tab-pane
+        p =@group.spirit.html_safe unless @group.nil?
 
-      =link_to "" do
-        span BOARD OF DIRECTORS
+.governance-section
+  .container
+    .pills-center
+      ul#tabs.nav data-tabs="pills"
+        li.active
+          a data-toggle="pill" href="#executive_committee" id="executive-committee"  
+            span Executive Committee
+            span.arrow_board >>
+        li
+          a data-toggle="pill" href="#board_of_directors"  
+            span Board of Directors 
+            span.arrow_board >>
 
 
-    h1.investors =@investor_content.title unless @investor_content.nil?
+      #my-tab-content.tab-content
+        #board_of_directors.tab-pane.fade
+          .governance-description.col-md-8.col-md-offset-2
+            =@group.board_of_directors_description.html_safe unless @group.nil?
+          
+          .row
+            .col-md-12
+              - @investors.each do |investor|
+                .people.col-md-3
+                  .group-image style='background-image: url("#{investor.photo(:thumb)}")'
+                  h4 ="#{investor.firstname} #{investor.lastname}"
+                  p =investor.description.html_safe
 
-    .subtitle =@investor_content.description unless @investor_content.nil?
-
-    div class="panel-group" id="accordion"
-      - @investors.each do |investor|
-        .panel.panel-default
-          div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse#{investor.id}" =(investor.firstname + " " + investor.lastname)
-          .invest_content id="collapse#{investor.id}" class="panel-collapse collapse"
-            .panel-body =investor.description.html_safe
 
 div style="clear:both"
+
+
