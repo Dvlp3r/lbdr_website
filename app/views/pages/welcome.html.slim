@@ -23,17 +23,21 @@
 
           .banner-description.hide
             - if index.eql?(9)
-              h1 = @new_investment.title.html_safe unless @new_investment.nil?
-              p = @new_investment.description.html_safe unless @new_investment.nil?
-              - unless index.eql?(0)
-                .info-sector
-                  = link_to 'More Info', new_investments_path, class: 'btn btn-green button'  
+              .title
+                h1 = @new_investment.title.html_safe unless @new_investment.nil?
+              .desc
+                p = @new_investment.description.html_safe unless @new_investment.nil?
+                - unless index.eql?(0)
+                  .info-sector
+                    = link_to 'More Info', new_investments_path, class: 'btn btn-green button'  
             - else
-              h1 = banner.title.html_safe unless banner.nil?
-              p = banner.description.html_safe unless banner.nil?
-              - unless index.eql?(0)
-                .info-sector
-                  = link_to 'More Info', banner.sector, class: 'btn btn-green button'
+              .title
+                h1 = banner.title.html_safe unless banner.nil?
+              .desc
+                p = banner.description.html_safe unless banner.nil?
+                - unless index.eql?(0)
+                  .info-sector
+                    = link_to 'More Info', banner.sector, class: 'btn btn-green button'
 
     .col-md-2.text-left
     

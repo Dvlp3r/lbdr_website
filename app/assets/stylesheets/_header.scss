@@ -151,6 +151,46 @@ button.navbar-toggle:hover {
       }
     }
 
+    .banner-description{
+      .title{
+        h1{
+          font-weight: bold; 
+          font-size:35px !important;
+        }
+        h2{
+          font-weight: bold;
+          font-size:35px !important;
+        }
+        h3{
+          font-weight: bold;
+          font-size:35px !important;
+        }
+        p{
+          font-weight: bold;
+          font-size:35px !important;
+        }
+      }
+
+      .desc{
+        h1{
+          font-weight: bold; 
+          font-size:23px !important;
+        }
+        h2{
+          font-weight: bold;
+          font-size:23px !important;
+        }
+        h3{
+          font-weight: bold;
+          font-size:23px !important;
+        }
+        p{
+          font-weight: bold;
+          font-size:23px !important;
+        }
+      }
+    }
+
     .btn{
       margin-bottom:10px;
 
