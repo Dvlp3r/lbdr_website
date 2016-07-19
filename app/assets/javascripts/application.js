@@ -28,7 +28,7 @@ $(function() {
     $('#brand_courssel').slick({
       centerMode: true,
       slidesToShow: 3,
-      arrows: false,
+      arrows: true,
       centerPadding: '0px',
       responsive: [
         {
@@ -61,7 +61,8 @@ $(function() {
       }
     });
 
-    $("#brand_courssel .tab-pane").eq(0).css("display", "block");
+    $(".tab-pane").css("display", "none");
+    $(".tab-pane").eq(0).css("display", "block");
 
     console.log($(".brand-tab").eq(0));
 

@@ -19,6 +19,7 @@
     .col-md-2.text-left
 
 .list-unstyled.brand-tabs#brand_courssel
+
   - @sectors.each do |sector|
     .col-8
       a data-toggle="pill" href="#temp_#{sector.id}" style='background-image: url("#{sector.sector_photo(:big)}");'
@@ -31,16 +32,18 @@
         span =@new_investment.title
       
       h3 =@new_investment.title
-
+  
 .container.brand 
   .tab-content.col-md-12
     - @sectors.each do |sector|
       div id="#temp_#{sector.id}" class="tab-pane brand-tab"
         - SectorBrand.all.where(sector_id: sector.id).each do |var|
-          .col-md-4 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)
+          -unless var.brand.nil? 
+            .col-md-4 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)
     div id="#temp_#{@new_investment.id}" class="tab-pane brand-tab"
         - Brand.all.where(new_investment_id: @new_investment.id).each do |var|
-          .col-md-4 = link_to image_tag(var.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var)      
+          -unless var.nil?
+            .col-md-4 = link_to image_tag(var.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var)      
   br
   br
   br
