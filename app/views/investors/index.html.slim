@@ -13,10 +13,8 @@
 
           .banner-description.hide
             .title
-              h1 =@investor_content.title unless @investor_content.nil?
-            .desc
-              p =@investor_content.description unless @investor_content.nil?
-
+              h1 = "Investors"
+              
     .col-md-2.text-left
 
   .arrow
@@ -32,45 +30,28 @@
       li
         a data-toggle="pill" href="#profile"  profile
       li.active
-        a data-toggle="pill" href="#shareholders" shareholder
+        a data-toggle="pill" href="#shareholders" investors
       li
         a data-toggle="pill" href="#investment"  investment
 
 
-    #my-tab-content.tab-content.col-md-8.col-md-offset-2
+    #my-tab-content.tab-content.col-md-12
       #profile.tab-pane
-        p =@group.model.html_safe unless @group.nil?
+        h1 =@investor_content.title unless @investor_content.nil?
+        p =@investor_content.description unless @investor_content.nil?
       #shareholders.tab-pane.active
-        p =@group.about.html_safe unless @group.nil?
-      #investment.tab-pane
-        p =@group.spirit.html_safe unless @group.nil?
-
-.governance-section
-  .container
-    .pills-center
-      ul#tabs.nav data-tabs="pills"
-        li.active
-          a data-toggle="pill" href="#executive_committee" id="executive-committee"  
-            span Executive Committee
-            span.arrow_board >>
-        li
-          a data-toggle="pill" href="#board_of_directors"  
-            span Board of Directors 
-            span.arrow_board >>
-
-
-      #my-tab-content.tab-content
-        #board_of_directors.tab-pane.fade
-          .governance-description.col-md-8.col-md-offset-2
-            =@group.board_of_directors_description.html_safe unless @group.nil?
-          
-          .row
+        .row
             .col-md-12
               - @investors.each do |investor|
                 .people.col-md-3
                   .group-image style='background-image: url("#{investor.photo(:thumb)}")'
                   h4 ="#{investor.firstname} #{investor.lastname}"
                   p =investor.description.html_safe
+      #investment.tab-pane
+        h1 =@new_investment.title unless @new_investment.nil?
+        p =@new_investment.description.html_safe unless @new_investment.nil?
+
+
 
 
 div style="clear:both"
