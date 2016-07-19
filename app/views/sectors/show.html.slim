@@ -15,12 +15,25 @@
 
 .col-md-12
   h3[style="text-align: center; font-size: 35px; font-weight: bold"]
-    | Brands
+    | Associated Brands
 
 .container.col-md-8.col-md-offset-2.list-brands-by-sector
-  - SectorBrand.all.where(sector_id: [params[:id]]).each do |var|
+  - @sector_brands.each_with_index do |var, i|
     - unless var.brand.nil?
-      .col-md-4 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)
+      - if (@sector_brands.length >= 3)
+        .col-md-4 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)
+      -elsif(@sector_brands.length == 2)
+        -if (i==0)
+          .col-md-2
+
+          .col-md-5 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)      
+        -else
+          .col-md-5 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)
+      -elsif(@sector_brands.length == 1)
+        .col-md-4
+
+        .col-md-4 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)
+
 .container-fluid
 - if current_user.try(:admin?)
   = link_to 'Edit', edit_sector_path(@sector), class: 'btn btn-danger'

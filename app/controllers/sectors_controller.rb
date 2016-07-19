@@ -17,6 +17,7 @@ class SectorsController < ApplicationController
   def show
     @brands = Brand.all
     @sectors = Sector.order(order: :asc)
+    @sector_brands = SectorBrand.all.where(sector_id: [params[:id]])
   end
 
   # GET /sectors/new
