@@ -4,6 +4,8 @@ class InvestorsController < ApplicationController
     @investors = Investor.all
 
     @investor_content = InvestorContent.first
+
+    @new_investment = NewInvestment.first
   end
 
   private

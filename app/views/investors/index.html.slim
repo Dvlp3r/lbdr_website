@@ -1,31 +1,59 @@
-.investors
-  .col-md-5
-    .row
-      - unless @investor_content.nil?
-        .investor-image  style='background-image: url("#{@investor_content.photo(:big)}");'
+.banner
 
-  .col-md-7.investor_text
+  .banner-body
+    - unless @investor_content.nil?
+      .banner-content style='background-image: url("#{@investor_content.photo(:big)}");'
 
-    .investor_link
-      =link_to pages_group_path do
-        span GROUP
+  .logo-information
+    .col-md-10.slider_leftpart
+
+      .col-md-3.text-left
+
+      .col-md-9.text-left
+
+          .banner-description.hide
+            .title
+              h1 = "Investors"
+              
+    .col-md-2.text-left
+
+  .arrow
+    .arrow-click
+      .arrow-in
+
+.container.section
+  .group-info
+
+    .triangle
+
+    ul#tabs.nav data-tabs="pills"
+      li
+        a data-toggle="pill" href="#profile"  profile
+      li.active
+        a data-toggle="pill" href="#shareholders" investors
+      li
+        a data-toggle="pill" href="#investment"  investment
 
 
-      = " \/ "
+    #my-tab-content.tab-content.col-md-12
+      #profile.tab-pane
+        h1 =@investor_content.title unless @investor_content.nil?
+        p =@investor_content.description unless @investor_content.nil?
+      #shareholders.tab-pane.active
+        .row
+            .col-md-12
+              - @investors.each do |investor|
+                .people.col-md-3
+                  .group-image style='background-image: url("#{investor.photo(:thumb)}")'
+                  h4 ="#{investor.firstname} #{investor.lastname}"
+                  p =investor.description.html_safe
+      #investment.tab-pane
+        h1 =@new_investment.title unless @new_investment.nil?
+        p =@new_investment.description.html_safe unless @new_investment.nil?
 
-      =link_to "" do
-        span BOARD OF DIRECTORS
 
 
-    h1.investors =@investor_content.title unless @investor_content.nil?
-
-    .subtitle =@investor_content.description unless @investor_content.nil?
-
-    div class="panel-group" id="accordion"
-      - @investors.each do |investor|
-        .panel.panel-default
-          div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse#{investor.id}" =(investor.firstname + " " + investor.lastname)
-          .invest_content id="collapse#{investor.id}" class="panel-collapse collapse"
-            .panel-body =investor.description.html_safe
 
 div style="clear:both"
+
+
