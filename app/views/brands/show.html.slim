@@ -13,7 +13,7 @@
   p#notice = notice
   .text-center
     = link_to @brand.url do
-      = image_tag @brand.logo_for_brand.url(:thumb), :target => "_blank", :class=> 'brand-logo-thumb'
+      = image_tag @brand.logo_for_brand.url(:thumb), :target => "_blank", :class=> 'brand-logo-thumb2'
     - @brand.sectors.each do |sector|
       h4 = sector.name
 

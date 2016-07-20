@@ -120,6 +120,12 @@ li.active a {
     width: 100%;
     height: 137px;
   }
+
+  @media(max-width:640px){
+  .sector-img{
+    height: 100%;
+   }
+  }
 }
 
 
