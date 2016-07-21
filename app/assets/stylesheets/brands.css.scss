@@ -43,7 +43,7 @@ img.brand-logo-thumb {
 
 img.brand-logo-thumb2 {
   // border: 1px solid $black;
-  width: 15%;
+  width: 50%;
   padding: 10px;
   margin: 30px 5px;
 }
@@ -72,6 +72,11 @@ img.brand-logo-thumb2 {
       color: #212121;
       font-weight: bold;
       font-size: 32px;
+      text-align: center;
+
+    @media (max-width: 640px){
+      margin-left: 120px;
+      }
     }
   }
 
