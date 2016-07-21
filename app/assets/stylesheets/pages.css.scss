@@ -298,6 +298,9 @@ img.fotorama__img {
   font-weight: 400;
   font-size: 24px;
   font-family: 'Alegreya Sans', sans-serif;
+  @media (max-width: 640px){
+    margin-top: 60px;
+  }
   .info{
     h1{
       font-style: inherit;
