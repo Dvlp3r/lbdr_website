@@ -43,9 +43,13 @@ img.brand-logo-thumb {
 
 img.brand-logo-thumb2 {
   // border: 1px solid $black;
-  width: 50%;
+  width: 20%;
   padding: 10px;
   margin: 30px 5px;
+
+  @media (max-width: 640px){
+  width: 30%;
+    }
 }
 
 .brand-tabs {
