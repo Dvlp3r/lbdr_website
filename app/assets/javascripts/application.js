@@ -339,3 +339,10 @@ $(function() {
     });
   });
 });
+
+function getSelect(lang) {
+  var pathname = window.location.pathname;
+  var path = pathname.split('/')
+  var value = lang.value;
+  window.location.replace(path[0]+"/"+value+"/"+path[2]);  
+}

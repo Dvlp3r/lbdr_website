@@ -1,40 +1,41 @@
 Rails.application.routes.draw do
-  resources :investor_contents
-  resources :post_banners
-  resources :investors
-  resources :brand_banners
-  resources :new_investments
-  resources :sector_banners
-  resources :group_banners
-  resources :banners
-  resources :contents
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-  resources :social_media
-  devise_for :users
-  resources :posts
-  resources :brands
-  resources :sectors
-  resources :homes
+  scope "/:locale" do
+    resources :investor_contents
+    resources :post_banners
+    resources :investors
+    resources :brand_banners
+    resources :new_investments
+    resources :sector_banners
+    resources :group_banners
+    resources :banners
+    resources :contents
+    resources :social_media
+    devise_for :users
+    resources :posts
+    resources :brands
+    resources :sectors
+    resources :homes
 
-  root 'pages#welcome'
+    root 'pages#welcome'
 
-  get 'pages/group' => 'pages#group', :path => 'group'
+    get 'pages/group' => 'pages#group', :path => 'group'
 
-  get 'pages/contact' => 'pages#contact', :path => 'contact'
+    get 'pages/contact' => 'pages#contact', :path => 'contact'
 
-  get 'new_investment_page' => 'new_investments#index', :path => 'new-investment'
+    get 'new_investment_page' => 'new_investments#index', :path => 'new-investment'
 
-  get 'investors_page' => 'investors#index', :path => 'investors'
-  
-  get 'board_member' => 'pages#board_member', :path => '/board_member/:id'
-  
-  get 'executive' => 'pages#executive', :path => '/executive/:id'
+    get 'investors_page' => 'investors#index', :path => 'investors'
+    
+    get 'board_member' => 'pages#board_member', :path => '/board_member/:id'
+    
+    get 'executive' => 'pages#executive', :path => '/executive/:id'
 
-  # get 'pages/investor'
+    get 'language' => 'pages#language', :path => 'language'
+  end
+  root to: redirect("/#{I18n.default_locale}", status: 302), as: :redirected_root
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  # Serve websocket cable requests in-process
-  # mount ActionCable.server => '/cable'
+  scope ':locale', defaults: { locale: I18n.locale } do
+    devise_for :admin_users, ActiveAdmin::Devise.config
+    ActiveAdmin.routes(self)
+  end
 end

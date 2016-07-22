@@ -38,5 +38,14 @@ class PagesController < ApplicationController
   def executive
     @executive = Executive.find(params[:id])
   end
+
+  def language
+    @banners = Banner.all
+    if Language.count.eql?(0)
+      @languages = [["English", "en"]]
+    else
+      @languages = Language.all.map {|u| [u.name, u.code]}
+    end
+  end
   
 end
