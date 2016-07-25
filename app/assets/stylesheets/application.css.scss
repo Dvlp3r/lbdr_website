@@ -219,22 +219,53 @@ h1 {
   .banner-description h2 {
     font-size:18px !important;
   }
-}
-
-@media(max-width:640px){
-#myNavmenu {
-  img{
-  position: relative;
-  top: 14px;
+  .banner.brand-banner{
+    .banner-body-hide-slider{
+      min-height:420px !important;
+      .banner-content {
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height:auto !important;
+        min-height: 400px !important;
+      }
+    }
   }
- }
+  .banner-sector{
+    .banner-sector-body{
+      min-height:420px !important;
+      .banner-sector-content{
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height:auto !important;
+        min-height: 400px !important;
+      
+        h2{
+          margin-top: 17vh;
+        }
+      }
+    }
+  }
+  .list-brands-by-sector{
+    .col-md-5{
+      text-align: center;
+    }
+  }
 }
 
 @media(max-width:640px){
-.arrow-click {
-  position: relative;
-  bottom: 42px;
- }
+  #myNavmenu {
+    img{
+      position: relative;
+      top: 14px;
+    }
+  }
+}
+
+@media(max-width:640px){
+  .arrow-click {
+    position: relative;
+    bottom: 42px;
+  }
 }
 
 
@@ -281,8 +312,108 @@ h1 {
 }
 
 @media  screen and (max-width: 400px)  {
-  .footer1 .col-xs-4  { width:100%;   }
-  .footer1 .copyright {  margin: 0 auto;  text-align: left;}
+  .footer1 .col-xs-4  { 
+    width:100%;   
+  }
+  .footer1 .copyright {  
+    margin: 0 auto;  
+    text-align: left;
+  }
+}
+
+@media  screen and (max-width: 767px)  {
+  .brand-tabs .slick-prev {
+    left: 0;
+    margin-top: -60px;
+    position: absolute;
+  }
+
+  .brand-tabs .slick-next {
+    margin-top: -60px;
+    right: 14px;
+    position: absolute;
+  }
+}
+
+@media (max-width: 991px) {
+  .sectors .sector-img { 
+    margin-bottom: 20px; 
+    height: auto; 
+  }
+  .sectors a p { 
+    margin: 10px 0 8px 0; 
+  }
+  .sectors a { 
+    color: #000; 
+  }
+}
+
+@media (max-width: 767px) {
+  .governance-section { 
+    padding-bottom: 20px; 
+    margin-top: 40px; 
+  }
+
+  .pills-center .tab-pane.active .governance-description { 
+    margin-left: 0; 
+  }
+
+  .group-info ul.nav li a { 
+    color: #000; 
+  }
+
+  .group-info { 
+    color: #000; 
+  }
+
+  .governance-description { 
+    color: #000; 
+  }
+
+  .pills-center ul.nav li a { 
+    border: solid 1px #000; 
+    color: #000; 
+  }
+
+  h3.sector-name { 
+    margin-top: 0; 
+  }
+
+  .sectors a { 
+    color: #929191; 
+  }
+
+  .brand-tabs .col-8 a { 
+    margin: 20px 0 5px 0; 
+  }
+
+  .slick-track { 
+    top: 10px; 
+  }
+
+  .sectors h1 { 
+    color: #129bc1; 
+    margin-top: 0px; 
+  }
+
+  .slick-slider { 
+    display: table; 
+    table-layout: fixed; 
+    width: 100%; 
+  }
+
+  .footer1 { 
+    padding: 0; 
+  }
+
+  .section_area.with_padding { 
+    padding: 0; 
+  }
+
+  .tab-content { 
+    margin-top: 10px; 
+  }
+
 }
 
 .lang{
