@@ -37,7 +37,12 @@ $(function() {
             arrows: true,
             centerMode: true,
             centerPadding: '0px',
-            slidesToShow: 1
+            slidesToShow: 1,
+            onAfterChange: function(event, currentSlide) {        
+              var page = currentSlide;
+              $(".tab-pane-brand_courssel").css("display", "none");
+              $(".tab-pane-brand_courssel").eq(page).css("display", "block");
+            }
           }
         },
         {
@@ -46,18 +51,20 @@ $(function() {
             arrows: true,
             centerMode: true,
             centerPadding: '0px',
-            slidesToShow: 1
+            slidesToShow: 1,
+            onAfterChange: function(event, currentSlide) {        
+              var page = currentSlide;
+              $(".tab-pane-brand_courssel").css("display", "none");
+              $(".tab-pane-brand_courssel").eq(page).css("display", "block");
+            }
           }
         }
       ],
       onAfterChange: function(event, currentSlide) {
         
         var page = currentSlide;
-
         $(".tab-pane-brand_courssel").css("display", "none");
         $(".tab-pane-brand_courssel").eq(page).css("display", "block");
-
-        console.log(page);
       }
     });
 

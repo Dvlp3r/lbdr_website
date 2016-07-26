@@ -7,10 +7,13 @@
     .arrow-click
       .arrow-in
 
-.container.section
-  h2[class="lang"] = "Welcome to Lbdr"
-  .col-md-5[style="text-align: center;"]
-    .col-md-8[style="text-align: center;"]
-      h4 = "select your language"
-    .col-md-4  
-      = select_tag 'set_locale', options_for_select(@languages, selected: params[:locale]), :class=>"select_language", :onclick=>"getSelect(this)"
+.container.section[style="box-sizing: border-box; position: relative; font-family: Arial,sans-serif;"]
+  
+  h1[class=".b-lang lang"]
+    span= "Welcome to Lbdr"
+    
+  h4[style="padding: 10px 10px 0px 10px; text-align: center;"]
+    span= "select your language"
+    
+  .col-md-12[style="text-align: center; padding-bottom: 15px;"] 
+    = select_tag 'set_locale', options_for_select(@languages, selected: params[:locale]), :class=>"select_language", :onclick=>"getSelect(this)", :style => "background-color: #333333; color: white; padding-bottom: 5px;"
