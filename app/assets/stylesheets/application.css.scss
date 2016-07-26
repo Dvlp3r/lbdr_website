@@ -335,6 +335,12 @@ h1 {
   }
 }
 
+@media  screen and (max-width: 980px)  {
+  img.brand-logo-thumb {
+    width: auto;
+  }
+}
+
 @media (max-width: 991px) {
   .sectors .sector-img { 
     margin-bottom: 20px; 

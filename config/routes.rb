@@ -38,4 +38,8 @@ Rails.application.routes.draw do
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
   end
+
+  scope ':locale' do 
+    get 'contact-us' => 'contact_us/contacts#new'
+  end
 end
