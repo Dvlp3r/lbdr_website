@@ -40,6 +40,6 @@ Rails.application.routes.draw do
   end
 
   scope ':locale' do 
-    get 'contact-us' => 'contact_us/contacts#new'
+    get 'contact-us-new' => 'contact_us/contacts#new', :path => 'contact_us_new'
   end
 end
