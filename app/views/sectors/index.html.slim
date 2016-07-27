@@ -16,7 +16,7 @@
           .banner-description.hide
             .title
               h1 =banner.title.html_safe unless banner.nil?
-            
+
             .desc
               p =banner.description.html_safe unless banner.nil?
 
@@ -28,19 +28,20 @@
 
 .container-fluid.sectors
   h1 We have companies in 9 different sectors
-  
+
   .container
 
     .col-md-12.visible-md-block.visible-lg-block.sector-row
       -@sectors.each_with_index do |sector, i|
-        
+
         - if((i) % 2 == 0)
           =link_to sector do
               .row.sector-img
-                .col-md-3.col-ms-3.styled-div style='background-image: url("#{sector.sector_photo(:thumb)}");'
-                    h3.sector-name = sector.name
-                .col-md-9.col-ms-9
-                  p =sanitize(sector.description, :tags=>[]).truncate(230, :separator => " ").html_safe 
+                .col-md-6.col-ms-6.styled-div style='background-image: url("#{sector.sector_photo(:thumb)}");'
+
+                .col-md-6.col-ms-6
+                  h3.sector-name = sector.name
+                  p =sanitize(sector.description, :tags=>[]).truncate(230, :separator => " ").html_safe
                   .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
           end
 
@@ -65,7 +66,7 @@
 
     .col-md-12.visible-sm-block.visible-xs-block
       -@sectors.each_with_index do |sector, i|
-        
+
         =link_to sector do
             .row.sector-img
               .col-md-3.col-ms-3.styled-div style='background-image: url("#{sector.sector_photo(:thumb)}");'
