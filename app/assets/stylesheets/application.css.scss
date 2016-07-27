@@ -238,7 +238,7 @@ h1 {
         background-size: 100% 100%;
         height:auto !important;
         min-height: 400px !important;
-      
+
         h2{
           margin-top: 17vh;
         }
@@ -312,11 +312,11 @@ h1 {
 }
 
 @media  screen and (max-width: 400px)  {
-  .footer1 .col-xs-4  { 
-    width:100%;   
+  .footer1 .col-xs-4  {
+    width:100%;
   }
-  .footer1 .copyright {  
-    margin: 0 auto;  
+  .footer1 .copyright {
+    margin: 0 auto;
     text-align: left;
   }
 }
@@ -342,88 +342,88 @@ h1 {
 }
 
 @media (max-width: 991px) {
-  .sectors .sector-img { 
-    margin-bottom: 20px; 
-    height: auto; 
+  .sectors .sector-img {
+    margin-bottom: 20px;
+    height: auto;
   }
-  .sectors a p { 
-    margin: 10px 0 8px 0; 
+  .sectors a p {
+    margin: 10px 0 8px 0;
   }
-  .sectors a { 
-    color: #000; 
+  .sectors a {
+    color: #000;
   }
 }
 
 @media (max-width: 767px) {
-  .governance-section { 
-    padding-bottom: 20px; 
-    margin-top: 40px; 
+  .governance-section {
+    padding-bottom: 20px;
+    margin-top: 40px;
   }
 
-  .pills-center .tab-pane.active .governance-description { 
-    margin-left: 0; 
+  .pills-center .tab-pane.active .governance-description {
+    margin-left: 0;
   }
 
-  .group-info ul.nav li a { 
-    color: #000; 
+  .group-info ul.nav li a {
+    color: #000;
   }
 
-  .group-info { 
-    color: #000; 
+  .group-info {
+    color: #000;
   }
 
-  .governance-description { 
-    color: #000; 
+  .governance-description {
+    color: #000;
   }
 
-  .pills-center ul.nav li a { 
-    border: solid 1px #000; 
-    color: #000; 
+  .pills-center ul.nav li a {
+    border: solid 1px #000;
+    color: #000;
   }
 
-  h3.sector-name { 
-    margin-top: 0; 
+  h3.sector-name {
+    margin-top: 0;
   }
 
-  .sectors a { 
-    color: #929191; 
+  .sectors a {
+    color: #929191;
   }
 
-  .brand-tabs .col-8 a { 
-    margin: 20px 0 5px 0; 
+  .brand-tabs .col-8 a {
+    margin: 20px 0 5px 0;
   }
 
-  .slick-track { 
-    top: 10px; 
+  .slick-track {
+    top: 10px;
   }
 
-  .sectors h1 { 
-    color: #129bc1; 
-    margin-top: 0px; 
+  .sectors h1 {
+    color: #cccccc; 
+    margin-top: 0px;
   }
 
-  .slick-slider { 
-    display: table; 
-    table-layout: fixed; 
-    width: 100%; 
+  .slick-slider {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
   }
 
-  .footer1 { 
-    padding: 0; 
+  .footer1 {
+    padding: 0;
   }
 
-  .section_area.with_padding { 
-    padding: 0; 
+  .section_area.with_padding {
+    padding: 0;
   }
 
-  .tab-content { 
-    margin-top: 10px; 
+  .tab-content {
+    margin-top: 10px;
   }
 
 }
 
 .b-lang{
-  
+
   position: relative;
   z-index: 1;
   text-align: center;
@@ -453,5 +453,5 @@ h1 {
   min-width: 15%;
   height: auto;
   width: auto;
-  z-index: 9999 -1; 
+  z-index: 9999 -1;
 }
