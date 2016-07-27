@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
     get 'language' => 'pages#language', :path => 'language'
   end
-  #root to: redirect("/#{I18n.default_locale}", status: 302), as: :redirected_root
+  root to: redirect("/#{I18n.default_locale}", status: 302), as: :redirected_root
 
   scope '/:locale', defaults: { locale: I18n.locale } do
     devise_for :admin_users, ActiveAdmin::Devise.config
