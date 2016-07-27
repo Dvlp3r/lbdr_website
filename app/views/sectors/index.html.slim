@@ -58,12 +58,11 @@
 
       =link_to new_investment_page_path do
           .row.sector-img
-            .col-md-6.col-ms-6.styled-div style='background-image: url("#{@new_investment.photo(:thumb)}");'
-
             .col-md-6.col-ms-6
             h1 =sanitize(@new_investment.title)
               p =sanitize(@new_investment.description, :tags=>[]).truncate(230, :separator => " ").html_safe
               .btn.button[style="width: 126px; font-size: 20px;" href="#{new_investment_page_path}"] ="Learn More.."
+              .col-md-6.col-ms-6.styled-div style='background-image: url("#{@new_investment.photo(:thumb)}");'
       end
 
     .col-md-12.visible-sm-block.visible-xs-block
