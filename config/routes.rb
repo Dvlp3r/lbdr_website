@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope "/:locale" do
+  scope "(/:locale)" do
     resources :investor_contents
     resources :post_banners
     resources :investors
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :sectors
     resources :homes
 
-    root 'pages#welcome'
+    
 
     get 'pages/group' => 'pages#group', :path => 'group'
 
@@ -32,14 +32,15 @@ Rails.application.routes.draw do
 
     get 'language' => 'pages#language', :path => 'language'
   end
-  root to: redirect("/#{I18n.default_locale}", status: 302), as: :redirected_root
+  #root to: redirect("/#{I18n.default_locale}", status: 302), as: :redirected_root
 
-  scope ':locale', defaults: { locale: I18n.locale } do
+  scope '/:locale', defaults: { locale: I18n.locale } do
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
   end
 
-  scope ':locale' do 
+  scope '/:locale' do
+    root 'pages#welcome' 
     get 'contact-us-new' => 'contact_us/contacts#new', :path => 'contact_us_new'
   end
 end

@@ -25,23 +25,36 @@
   - @sectors.each do |sector|
     .col-8
       a data-toggle="pill" href="#temp_#{sector.id}" style='background-image: url("#{sector.sector_photo(:big)}");'
-        span =sector.name
+        span link-to="#{'/sectors/' + sector.id.to_s}" =sector.name
       
       h3 =sector.name
 
   .col-8
       a data-toggle="pill" href="#temp_#{@new_investment.id}" style='background-image: url("#{@new_investment.photo(:big)}");'
-        span =@new_investment.title
+        span link-to="#{'/new_investment' }" =@new_investment.title
       
       h3 =@new_investment.title
   
 .container.brand 
-  .tab-content.col-md-12
+  .tab-content.col-md-8.col-md-offset-2
     - @sectors.each do |sector|
       div id="#temp_#{sector.id}" class="tab-pane-brand_courssel brand-tab"
-        - SectorBrand.all.where(sector_id: sector.id).each do |var|
-          -unless var.brand.nil? 
-            .col-md-4 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)
+        - @sector_brands = SectorBrand.all.where(sector_id: sector.id)
+        - @sector_brands.each_with_index do |var, i|
+          - unless var.brand.nil?
+            - if (@sector_brands.length >= 3)
+              .col-md-4 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)
+            -elsif(@sector_brands.length == 2)
+              -if (i==0)
+                .col-md-2
+
+                .col-md-4 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)      
+              -else
+                .col-md-4 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)
+            -elsif(@sector_brands.length == 1)
+              .col-md-4
+
+              .col-md-4 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)
     div id="#temp_#{@new_investment.id}" class="tab-pane-brand_courssel brand-tab"
         - Brand.all.where(new_investment_id: @new_investment.id).each do |var|
           -unless var.nil?

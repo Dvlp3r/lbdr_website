@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
  
   def set_locale
+    unless Language.all.map(&:code).include?(params[:locale])
+      I18n.locale = I18n.default_locale
+      return redirect_to "/#{I18n.locale}#{request.original_fullpath}"
+    end
     I18n.locale = params[:locale] || I18n.default_locale
   end
 

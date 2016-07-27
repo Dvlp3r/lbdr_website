@@ -17,10 +17,10 @@
     - @brand.sectors.each do |sector|
       h4 = sector.name
 
-  .description.container-fluid.col-md-8.col-md-offset-2.text-justify = @brand.description.html_safe
+  .description.container-fluid.col-md-8.col-md-offset-2.text-justify[style="color: #1a1a1a;"] = @brand.description.html_safe
 
   .container-fluid
-  = button_to 'Visit Website', @brand.url, :target => "_blank", :class=> 'btn btn-default btn-lg brand-show'
+  = link_to 'Visit Website', @brand.url, :target => "_blank", :class=> 'btn btn-default btn-lg brand-show', :style => "width: 130px;"
 
   .container-fluid
   - if current_user.try(:admin?)

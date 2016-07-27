@@ -188,6 +188,11 @@ button.navbar-toggle:hover {
           font-weight: bold;
           font-size:23px !important;
         }
+        blockquote{
+          border-left: 0px;
+          font-weight: bold;
+          font-size:23px !important;
+        }
       }
     }
 
@@ -523,6 +528,10 @@ button.navbar-toggle:hover {
     font-family: 'Alegreya Sans SC', sans-serif;
   }
   h5{
+    font-weight: bold;
+  }
+  h4{
+    font-size: 25px;
     font-weight: bold;
   }
   p{

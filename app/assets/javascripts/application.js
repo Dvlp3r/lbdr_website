@@ -296,6 +296,12 @@ $(function() {
 
       console.log(temp);
     });
+
+    $("#brand_courssel .col-8 a").dblclick(function(e){
+      var temp = $(this).find("span").attr("link-to");
+
+      window.location.href = temp;
+    });
     
   };
 
