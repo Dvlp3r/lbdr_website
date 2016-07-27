@@ -40,7 +40,7 @@
                 .col-md-6.col-ms-6.styled-div style='background-image: url("#{sector.sector_photo(:thumb)}");'
 
                 .col-md-6.col-ms-6
-                  p =sanitize(sector.description, :tags=>[]).truncate(230, :separator => " ").html_safe
+                  p =sanitize(sector.name, sector.description, :tags=>[]).truncate(230, :separator => " ").html_safe
                   .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
           end
 
