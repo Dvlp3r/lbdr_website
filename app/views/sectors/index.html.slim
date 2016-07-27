@@ -40,6 +40,7 @@
                 .col-md-6.col-ms-6.styled-div style='background-image: url("#{sector.sector_photo(:thumb)}");'
 
                 .col-md-6.col-ms-6
+                h3.sector-name = sector.name
                   p =sanitize(sector.description, :tags=>[]).truncate(230, :separator => " ").html_safe
                   .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
           end
@@ -50,6 +51,7 @@
                 .col-md-6.col-ms-6
                   p =sanitize(sector.description, :tags=>[]).truncate(230, :separator => " ").html_safe
                   .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
+                  h3.sector-name = sector.name
                 .col-md-6.col-ms-6.styled-div style='background-image: url("#{sector.sector_photo(:thumb)}");'
 
           end
@@ -59,6 +61,7 @@
             .col-md-6.col-ms-6.styled-div style='background-image: url("#{@new_investment.photo(:thumb)}");'
               h3.sector-name = @new_investment.title
             .col-md-6.col-ms-6
+
               p =sanitize(@new_investment.description, :tags=>[]).truncate(230, :separator => " ").html_safe
               .btn.button[style="width: 126px; font-size: 20px;" href="#{new_investment_page_path}"] ="Learn More.."
       end
@@ -69,8 +72,9 @@
         =link_to sector do
             .row.sector-img
               .col-md-6.col-ms-6.styled-div style='background-image: url("#{sector.sector_photo(:thumb)}");'
-                
+
               .col-md-6.col-ms-6
+              h3.sector-name = sector.name
                 p =sanitize(sector.description, :tags=>[]).truncate(230, :separator => " ").html_safe
         end
 
