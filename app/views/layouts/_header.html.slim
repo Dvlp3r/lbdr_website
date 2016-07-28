@@ -25,4 +25,4 @@ div class=(current_page?("/#{I18n.locale}") ? 'navbar navbar-default navbar-fixe
     span
 
   
-  = link_to image_tag('lbdr.svg'), root_path, :class=>(current_page?("/") ? "sidebar-logo-hide" : "sidebar-logo-show")
+  = link_to image_tag('lbdr.svg'), root_path, :class=>(current_page?("/#{I18n.locale}") ? "sidebar-logo-hide" : "sidebar-logo-show")
