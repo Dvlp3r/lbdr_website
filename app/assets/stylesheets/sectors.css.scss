@@ -281,40 +281,44 @@ li.active a {
  }
 }
 
+@media (min-width:641px){
+  #myNavmenu .sidebar-logo-show img { margin: 26px 0 8% 5% !important;}
+}
+
 @media (max-width:767px){
   a { 
     outline:none !important
   }
-/*home page responsive css */ 
+  /*home page responsive css */ 
   .banner .banner-body .banner-content { 
-    min-height:600px;
+    min-height:600px !important;
   } 
 
   .slick-track { 
-    top:0px;
+    top:0px !important;
   }
   .navbar-fixed-top { 
-    top:0;
+    top:0 !important;
   }
   .banner .logo-information .logo_lbdr img { 
-    width:180px;
+    width:180px !important;
   }
   .banner .logo-information .logo_lbdr { 
-    text-align:center; 
-    margin-top:0px;
+    text-align:center !important; 
+    margin-top:0px !important;
   }
   .banner .logo-information .banner-description .desc h2 { 
-    font-size: 20px !important; 
+    font-size: 18px !important; 
     text-align: center;
   }
   #nav-icon1 { 
     margin-left:15px;
   }
   .section_area.with_padding { 
-    padding:0 0 20px 0;
+    padding:0 0 20px 0 !important;
   }
   .section_area.with_padding h3 { 
-    margin-bottom:0px;
+    margin-bottom:0px !important;
   }
 
   .flag_icon_area { 
@@ -323,75 +327,77 @@ li.active a {
     margin:15px 0;
   }
   .footer1 .copyright.text-right, .footer1.text-right { 
-    float:left !important;
+    float:left !important; 
+    padding-bottom: 15px; 
+    width: 100%;
   }
   .footer1 .widget { 
-    margin-bottom:0;
+    margin-bottom:0 !important;
   }
 
   /*group page responsive css */
   .group-info { 
-    margin-top:15px;
+    margin-top:15px !important;
   }
   .governance-section { 
-    margin-top:20px;
+    margin-top:20px !important;
   }
   .governance-description h2 { 
-    font-size: 24px; margin:19px 0 15px 0;
+    font-size: 24px !important; 
+    margin:19px 0 15px 0 !important;
   }
 
   /* sector page responsive css */
   .container-fluid.sectors { 
-    padding-top:25px;
+    padding-top:25px !important;
   }
   .sectors .sector-img { 
-    text-align:center
+    text-align:center !important;
   }
   .sectors .sector-img h1 { 
-    margin:15px 0 0 0;
+    margin:15px 0 0 0 !important;
   }
 
   /* brand page responsive css */
   .container.brand { 
-    padding-bottom:10px;
+    padding-bottom:10px !important;
   }
   .brand-tabs .slick-slide { 
-    height:auto
+    height:auto !important;
   }
   img.brand-logo-thumb { 
-    margin:15px 0;
+    margin:15px 0 !important;
   }
   .brand-tabs .col-8 a { 
-    margin-top:0px;
+    margin-top:0px !important;
   }
   .brand-tabs .slick-prev { 
-    margin-top:-25px;
+    margin-top:-25px !important;
   }
   .brand-tabs .slick-next { 
-    margin-top:-25px;
+    margin-top:-25px !important;
   }
   .brand-tabs .slick-center h3 { 
-    right:0; 
-    margin:50px 0 0 0; 
-    font-size:26px;
+    right:0 !important; 
+    margin:50px 0 0 0 !important; 
+    font-size:26px !important;
   }
 
   /* Investor page responsive css */
   .people { 
-    margin:20px 0; 
-    padding: 0
+    margin:20px 0 !important; 
+    padding: 0 !important;
   }
 
   /* new-investment page responsive css */
   .description { 
-    margin:0;
-  }
+    margin:0 !important;}
 
   .body-padding { 
-    padding-top:0;
+    padding-top:0 !important;
   }
   .container.news.col-md-8.col-md-offset-2 { 
-    padding-bottom: 15px;
+    padding-bottom: 15px !important;
   }
 
   /* contact page responsive css */
@@ -403,7 +409,6 @@ li.active a {
 
 @media (max-width:350px){
   .banner .banner-body .banner-content { 
-    min-height:482px;
+    min-height:482px !important;
   }
 }
-
