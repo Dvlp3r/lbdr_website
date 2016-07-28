@@ -1,7 +1,7 @@
 .banner
 
   .banner-body
-    .banner-content style='background-image: url("#{@banners[0].photo(:big)}");'
+    .banner-content style='background-image: url(http://theamericangenius.com/wp-content/uploads/2011/11/world-map.jpg);'
 
   .arrow
     .arrow-click
@@ -16,4 +16,4 @@
     span= "select your language"
     
   .col-md-12[style="text-align: center; padding-bottom: 15px;"] 
-    = select_tag 'set_locale', options_for_select(@languages, selected: params[:locale]), :class=>"select_language", :onclick=>"getSelect(this)", :style => "background-color: #333333; color: white; padding-bottom: 5px;"
+    = select_tag 'set_locale', options_for_select(@languages), prompt: "Select language" ,:class=>"select_language", :onclick=>"getSelect(this)", :style => "background-color: #333333; color: white; padding-bottom: 5px;"
