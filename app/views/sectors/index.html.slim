@@ -70,15 +70,15 @@
                 .col-md-6.col-ms-6
                   -if params[:locale] == "es"
                     h1 = sanitize(sector.es_name)
-                    p =sanitize(sector.try(:es_description), :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
+                    p =sanitize(sector.try(:es_description).to_s, :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
                     .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
                   -elsif params[:locale] == 'tr'
                     h1 = sanitize(sector.tr_name)
-                    p =sanitize(sector.try(:tr_description), :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
+                    p =sanitize(sector.try(:tr_description).to_s, :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
                     .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
                   -else
                     h1 = sanitize(sector.name)
-                    p =sanitize(sector.description, :tags=>[]).truncate(230, :separator => " ").html_safe
+                    p =sanitize(sector.description.to_s, :tags=>[]).truncate(230, :separator => " ").html_safe
                     .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
                 
                 .col-md-6.col-ms-6.styled-div style='background-image: url("#{sector.sector_photo(:big)}");'
