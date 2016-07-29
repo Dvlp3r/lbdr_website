@@ -92,14 +92,14 @@
             .col-md-6.col-ms-6
               -if params[:locale] == "es"
                 h1 = sanitize(@new_investment.es_title)
-                p =sanitize(@new_investment.try(:es_description), :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
+                p =sanitize(@new_investment.try(:es_description).to_s, :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
                 .btn.button[style="width: 126px; font-size: 20px;" href="#{new_investment_page_path}"] ="Learn More.."
               -elsif params[:locale] == 'tr'
                 h1 = sanitize(@new_investment.tr_title)
-                p =sanitize(@new_investment.try(:tr_description), :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
+                p =sanitize(@new_investment.try(:tr_description).to_s, :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
                 .btn.button[style="width: 126px; font-size: 20px;" href="#{new_investment_page_path}"] ="Learn More.."
               -else
                 h1 = sanitize(@new_investment.title)
-                p =sanitize(@new_investment.description, :tags=>[]).truncate(230, :separator => " ").html_safe
+                p =sanitize(@new_investment.description.to_s, :tags=>[]).truncate(230, :separator => " ").html_safe
                 .btn.button[style="width: 126px; font-size: 20px;" href="#{new_investment_page_path}"] ="Learn More.."
       end
