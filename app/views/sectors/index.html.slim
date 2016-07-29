@@ -15,10 +15,20 @@
 
           .banner-description.hide
             .title
-              h1 =banner.title.html_safe unless banner.nil?
+              -if params[:locale] == "es"
+                h1 =banner.try(:es_title).try(:html_safe) unless banner.nil?
+              -elsif params[:locale] == 'tr'
+                h1 =banner.try(:tr_title).try(:html_safe) unless banner.nil?
+              -else
+                h1 =banner.title.html_safe unless banner.nil?
 
             .desc
-              p =banner.description.html_safe unless banner.nil?
+              -if params[:locale] == "es"
+                p =banner.try(:es_description).try(:html_safe) unless banner.nil?
+              -elsif params[:locale] == 'tr'
+                p =banner.try(:tr_description).try(:html_safe) unless banner.nil?
+              -else
+                p =banner.description.html_safe unless banner.nil?
 
     .col-md-2.text-left
 
@@ -40,18 +50,37 @@
                 .col-md-6.col-ms-6.styled-div style='background-image: url("#{sector.sector_photo(:big)}");'
 
                 .col-md-6.col-ms-6
-                  h1 =sanitize(sector.name)
-                  p =sanitize(sector.description, :tags=>[]).truncate(230, :separator => " ").html_safe
-                  .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
+                  -if params[:locale] == "es"
+                    h1 =sanitize(sector.es_name)
+                    p =sanitize(sector.try(:es_description).to_s, :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
+                    .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
+                  -elsif params[:locale] == 'tr'
+                    h1 =sanitize(sector.tr_name)
+                    p =sanitize(sector.try(:tr_description).to_s, :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
+                    .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
+                  -else
+                    h1 =sanitize(sector.name)
+                    p =sanitize(sector.try(:description).to_s, :tags=>[]).truncate(230, :separator => " ").html_safe
+                    .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
           end
 
         - else
           =link_to sector do
               .row.sector-img
                 .col-md-6.col-ms-6
-                  h1 = sanitize(sector.name)
-                  p =sanitize(sector.description, :tags=>[]).truncate(230, :separator => " ").html_safe
-                  .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
+                  -if params[:locale] == "es"
+                    h1 = sanitize(sector.es_name)
+                    p =sanitize(sector.try(:es_description), :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
+                    .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
+                  -elsif params[:locale] == 'tr'
+                    h1 = sanitize(sector.tr_name)
+                    p =sanitize(sector.try(:tr_description), :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
+                    .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
+                  -else
+                    h1 = sanitize(sector.name)
+                    p =sanitize(sector.description, :tags=>[]).truncate(230, :separator => " ").html_safe
+                    .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
+                
                 .col-md-6.col-ms-6.styled-div style='background-image: url("#{sector.sector_photo(:big)}");'
 
           end
@@ -59,29 +88,18 @@
       =link_to new_investment_page_path do
           .row.sector-img
             .col-md-6.col-ms-6.styled-div style='background-image: url("#{@new_investment.photo(:big)}");'
-
+            
             .col-md-6.col-ms-6
-              h1 =sanitize(@new_investment.title)
-              p =sanitize(@new_investment.description, :tags=>[]).truncate(230, :separator => " ").html_safe
-              .btn.button[style="width: 126px; font-size: 20px;" href="#{new_investment_page_path}"] ="Learn More.."
-      end
-
-    .col-md-12.visible-sm-block.visible-xs-block
-      -@sectors.each_with_index do |sector, i|
-
-        =link_to sector do
-            .row.sector-img
-              .col-md-6.col-ms-6.styled-div style='background-image: url("#{sector.sector_photo(:big)}");'
-
-              .col-md-6.col-ms-6
-                p =sanitize(sector.description, :tags=>[]).truncate(230, :separator => " ").html_safe
-        end
-
-      =link_to new_investment_page_path do
-          .row.sector-img
-            .col-md-6.col-ms-6.styled-div style='background-image: url("#{@new_investment.photo(:big)}");'
-
-            .col-md-6.col-ms-6
-
-              p =sanitize(@new_investment.description, :tags=>[]).truncate(230, :separator => " ").html_safe
+              -if params[:locale] == "es"
+                h1 = sanitize(@new_investment.es_title)
+                p =sanitize(@new_investment.try(:es_description), :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
+                .btn.button[style="width: 126px; font-size: 20px;" href="#{new_investment_page_path}"] ="Learn More.."
+              -elsif params[:locale] == 'tr'
+                h1 = sanitize(@new_investment.tr_title)
+                p =sanitize(@new_investment.try(:tr_description), :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
+                .btn.button[style="width: 126px; font-size: 20px;" href="#{new_investment_page_path}"] ="Learn More.."
+              -else
+                h1 = sanitize(@new_investment.title)
+                p =sanitize(@new_investment.description, :tags=>[]).truncate(230, :separator => " ").html_safe
+                .btn.button[style="width: 126px; font-size: 20px;" href="#{new_investment_page_path}"] ="Learn More.."
       end

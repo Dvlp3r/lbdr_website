@@ -15,15 +15,27 @@
 
           .banner-description.hide
             .title
-              h1 =banner.title.html_safe unless banner.nil?
+              -if params[:locale] == "es"
+                h1 =banner.try(:es_title).try(:html_safe) unless banner.nil?
+              -elsif params[:locale] == 'tr'
+                h1 =banner.try(:tr_title).try(:html_safe) unless banner.nil?
+              -else
+                h1 =banner.title.html_safe unless banner.nil?
+
             .desc
-              p =banner.description.html_safe unless banner.nil?
+              -if params[:locale] == "es"
+                p =banner.try(:es_description).try(:html_safe) unless banner.nil?
+              -elsif params[:locale] == 'tr'
+                p =banner.try(:tr_description).try(:html_safe) unless banner.nil?
+              -else
+                p =banner.description.html_safe unless banner.nil?
 
     .col-md-2.text-left
 
   .arrow
     .arrow-click
       .arrow-in
+
 
 .container.section
   .group-info
@@ -42,13 +54,30 @@
     #my-tab-content.tab-content.col-md-12
       #model.tab-pane
         .info
-          =@group.model.html_safe unless @group.nil?
+          -if params[:locale] == "es"
+            =@group.try(:es_model).try(:html_safe) unless @group.nil?
+          -elsif params[:locale] == 'tr'
+            =@group.try(:tr_model).try(:html_safe) unless @group.nil?
+          -else
+            =@group.model.html_safe unless @group.nil?
+
       #about.tab-pane.active
         .info
-          =@group.about.html_safe unless @group.nil?
+          -if params[:locale] == "es"
+            =@group.try(:es_about).try(:html_safe) unless @group.nil?
+          -elsif params[:locale] == 'tr'
+            =@group.try(:tr_about).try(:html_safe) unless @group.nil?
+          -else
+            =@group.about.html_safe unless @group.nil?
+
       #spirit.tab-pane
         .info
-          =@group.spirit.html_safe unless @group.nil?
+          -if params[:locale] == "es"
+            =@group.try(:es_spirit).try(:html_safe) unless @group.nil?
+          -elsif params[:locale] == 'tr'
+            =@group.try(:tr_spirit).try(:html_safe) unless @group.nil?
+          -else
+            =@group.spirit.html_safe unless @group.nil?
 
 .governance-section
   .container
@@ -67,7 +96,12 @@
       #my-tab-content.tab-content
         #executive_committee.tab-pane.fade.in.active
           .governance-description.col-md-12
-            =@group.executive_committee_description.html_safe unless @group.nil?
+            -if params[:locale] == "es"
+              =@group.try(:es_executive_committee_description).try(:html_safe) unless @group.nil?
+            -elsif params[:locale] == 'tr'
+              =@group.try(:tr_executive_committee_description).try(:html_safe) unless @group.nil?
+            -else
+              =@group.executive_committee_description.html_safe unless @group.nil?
 
           .row
             .col-md-12
@@ -80,7 +114,12 @@
 
         #board_of_directors.tab-pane.fade
           .governance-description.col-md-12
-            =@group.board_of_directors_description.html_safe unless @group.nil?
+            -if params[:locale] == "es"
+              =@group.try(:es_board_of_directors_description).try(:html_safe) unless @group.nil?
+            -elsif params[:locale] == 'tr'
+              =@group.try(:tr_board_of_directors_description).try(:html_safe) unless @group.nil?
+            -else
+              =@group.board_of_directors_description.html_safe unless @group.nil?
           
           .row
             .col-md-12

@@ -15,9 +15,20 @@
 
           .banner-description.hide
             .title
-              h1 =banner.title.html_safe unless banner.nil?
+              -if params[:locale] == "es"
+                h1 =banner.try(:es_title).try(:html_safe) unless banner.nil?
+              -elsif params[:locale] == 'tr'
+                h1 =banner.try(:tr_title).try(:html_safe) unless banner.nil?
+              -else
+                h1 =banner.title.html_safe unless banner.nil?
+
             .desc
-              p =banner.description.html_safe unless banner.nil?
+              -if params[:locale] == "es"
+                p =banner.try(:es_description).try(:html_safe) unless banner.nil?
+              -elsif params[:locale] == 'tr'
+                p =banner.try(:tr_description).try(:html_safe) unless banner.nil?
+              -else
+                p =banner.description.html_safe unless banner.nil?
 
     .col-md-2.text-left
 

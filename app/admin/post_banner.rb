@@ -1,5 +1,5 @@
 ActiveAdmin.register PostBanner do
-  permit_params :title, :description, :photo
+  permit_params :title, :description,:es_title, :es_description,:tr_title, :tr_description, :photo
   menu parent: "News", priority: 2, label: "News Banner"
 
   filter :title
@@ -23,7 +23,11 @@ ActiveAdmin.register PostBanner do
   form do |f|
     f.inputs 'Banner' do
       f.input :title
+      f.input :es_title
+      f.input :tr_title
       f.input :description, as: :html_editor
+      f.input :es_description, as: :html_editor
+      f.input :tr_description, as: :html_editor
       f.input :photo, :as => :file, hint: f.object.photo? ? image_tag(f.object.photo.url, height: '100', width: '100') : content_tag(:span, "Upload JPG/PNG/GIF image")
     end
     f.button 'Commit'
@@ -33,7 +37,11 @@ ActiveAdmin.register PostBanner do
     attributes_table do
       row :id
       row :title
+      row :es_title
+      row :tr_title
       row :description
+      row :es_description
+      row :tr_description
       row :created_at
       row :updated_at
       row :photo do |image|

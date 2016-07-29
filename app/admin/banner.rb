@@ -1,5 +1,5 @@
 ActiveAdmin.register Banner do
-  permit_params :sector_id, :title, :description, :order, :photo
+  permit_params :sector_id, :title, :description,:es_title, :es_description,:tr_title, :tr_description, :order, :photo
   menu parent: "Home", priority: 2, label: "Banner"
 
   filter :sector
@@ -28,7 +28,11 @@ ActiveAdmin.register Banner do
       f.input :order
       f.input :sector
       f.input :title
+      f.input :es_title
+      f.input :tr_title
       f.input :description, as: :html_editor
+      f.input :es_description, as: :html_editor
+      f.input :tr_description, as: :html_editor
       f.input :photo, :as => :file, hint: f.object.photo? ? image_tag(f.object.photo.url, height: '100', width: '100') : content_tag(:span, "Upload JPG/PNG/GIF image")
     end
     f.button 'Commit'
@@ -40,7 +44,11 @@ ActiveAdmin.register Banner do
       row :order
       row :sector
       row :title
+      row :es_title
+      row :tr_title
       row :description
+      row :es_description
+      row :tr_description
       row :created_at
       row :updated_at
       row :photo do |image|

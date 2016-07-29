@@ -1,5 +1,5 @@
 ActiveAdmin.register Sector do
-  permit_params :name, :description, :icon_image,  :sector_photo, :_wysihtml5_mode, :order
+  permit_params :es_name, :es_description,:tr_name, :tr_description,:name, :description, :icon_image,  :sector_photo, :_wysihtml5_mode, :order
   menu parent: "Sectors", priority: 5, label: "Sector"
 
 
@@ -23,8 +23,12 @@ ActiveAdmin.register Sector do
     f.inputs 'Sector' do
       f.input :order
       f.input :name
+      f.input :tr_name
+      f.input :es_name
       f.input :icon_image
       f.input :description, as: :html_editor
+      f.input :tr_description, as: :html_editor
+      f.input :es_description, as: :html_editor
       f.input :sector_photo, :as => :file, hint: f.object.sector_photo? ? image_tag(f.object.sector_photo.url, height: '100', width: '100') : content_tag(:span, "Upload JPG/PNG/GIF image")
     end
     f.button 'Commit'
@@ -35,8 +39,12 @@ ActiveAdmin.register Sector do
       row :id
       row :order
       row :name
+      row :tr_name
+      row :es_name
       row :icon_image
       row :description
+      row :tr_description
+      row :es_description
       row :created_at
       row :updated_at
       row :sector_photo_file_name

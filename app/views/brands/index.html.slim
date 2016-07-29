@@ -14,9 +14,19 @@
 
           .banner-description.hide
             .title
-              h1 =@banners[0].title.html_safe unless banner.nil?
+              -if params[:locale] == "es"
+                h1 =@banners[0].try(:es_title).try(:html_safe) unless @banners[0].es_title.nil?
+              -elsif params[:locale] == 'tr'
+                h1 =@banners[0].try(:tr_title).try(:html_safe) unless @banners[0].tr_title.nil?
+              -else
+                h1 =@banners[0].title.html_safe unless banner.nil?
             .desc
-              p =@banners[0].description.html_safe unless banner.nil?
+              -if params[:locale] == "es"
+                p =@banners[0].try(:es_description).try(:html_safe) unless @banners[0].es_description.nil?
+              -elsif params[:locale] == 'tr'
+                p =@banners[0].try(:tr_description).try(:html_safe) unless @banners[0].tr_description.nil?
+              -else
+                p =@banners[0].try(:description).try(:html_safe) unless banner.nil?
 
     .col-md-2.text-left
 
@@ -25,15 +35,36 @@
   - @sectors.each do |sector|
     .col-8
       a data-toggle="pill" href="#temp_#{sector.id}" style='background-image: url("#{sector.sector_photo(:big)}");'
-        span link-to="#{'/sectors/' + sector.id.to_s}" =sector.name
-      
-      h3 =sector.name
+        span link-to="#{'/sectors/' + sector.id.to_s}"
+          -if params[:locale] == "es"
+            =sector.es_name
+          -elsif params[:locale] == 'tr'
+            =sector.tr_name
+          -else
+            =sector.name 
+      -if params[:locale] == "es"
+        h3 =sector.es_name
+      -elsif params[:locale] == 'tr'
+        h3 =sector.tr_name
+      -else
+        h3 =sector.name
 
   .col-8
       a data-toggle="pill" href="#temp_#{@new_investment.id}" style='background-image: url("#{@new_investment.photo(:big)}");'
-        span link-to="#{'/new_investment' }" =@new_investment.title
-      
-      h3 =@new_investment.title
+        span link-to="#{'/new_investment' }"
+          -if params[:locale] == "es"
+            =@new_investment.es_title
+          -elsif params[:locale] == 'tr'
+            =@new_investment.tr_title
+          -else
+            =@new_investment.title 
+
+      -if params[:locale] == "es"
+        h3 =@new_investment.es_title
+      -elsif params[:locale] == 'tr'
+        h3 =@new_investment.tr_title
+      -else
+        h3 =@new_investment.title
   
 .container.brand 
   .tab-content.col-md-8.col-md-offset-2

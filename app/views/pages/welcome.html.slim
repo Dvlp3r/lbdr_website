@@ -24,20 +24,52 @@
           .banner-description.hide
             - if index.eql?(9)
               .title
-                h1 = @new_investment.title.html_safe unless @new_investment.nil?
+                -if params[:locale] == "es"
+                  h1 = @new_investment.try(:es_title).try(:html_safe) unless @new_investment.nil?
+                -elsif params[:locale] == 'tr'
+                  h1 = @new_investment.try(:tr_title).try(:html_safe) unless @new_investment.nil?
+                -else
+                  h1 = @new_investment.title.html_safe unless @new_investment.nil?
               .desc
-                p = @new_investment.description.html_safe unless @new_investment.nil?
-                - unless index.eql?(0)
-                  .info-sector
-                    = link_to 'More Info', new_investments_path, class: 'btn btn-green button'  
+                -if params[:locale] == "es"
+                  p = @new_investment.try(:es_description).try(:html_safe)unless @new_investment.nil?
+                  - unless index.eql?(0)
+                    .info-sector
+                      = link_to 'More Info', new_investments_path, class: 'btn btn-green button'
+                -elsif params[:locale] == 'tr'
+                  p = @new_investment.try(:tr_description).try(:html_safe) unless @new_investment.nil?
+                  - unless index.eql?(0)
+                    .info-sector
+                      = link_to 'More Info', new_investments_path, class: 'btn btn-green button'
+                -else
+                  p = @new_investment.description.html_safe unless @new_investment.nil?
+                  - unless index.eql?(0)
+                    .info-sector
+                      = link_to 'More Info', new_investments_path, class: 'btn btn-green button'  
             - else
               .title
-                h1 = banner.title.html_safe unless banner.nil?
+                -if params[:locale] == "es"
+                  h1 = banner.try(:es_title).try(:html_safe) unless banner.nil?
+                -elsif params[:locale] == 'tr'
+                  h1 = banner.try(:tr_title).try(:html_safe) unless banner.nil?
+                -else
+                  h1 = banner.title.html_safe unless banner.nil?
               .desc
-                p = banner.description.html_safe unless banner.nil?
-                - unless index.eql?(0)
-                  .info-sector
-                    = link_to 'More Info', banner.sector, class: 'btn btn-green button'
+                -if params[:locale] == "es"
+                  p = banner.try(:es_description).try(:html_safe) unless banner.nil?
+                  - unless index.eql?(0)
+                    .info-sector
+                      = link_to 'More Info', banner.sector, class: 'btn btn-green button'
+                -elsif params[:locale] == 'tr'
+                  p = banner.try(:tr_description).try(:html_safe) unless banner.nil?
+                  - unless index.eql?(0)
+                    .info-sector
+                      = link_to 'More Info', banner.sector, class: 'btn btn-green button'
+                -else
+                  p = banner.description.html_safe unless banner.nil?
+                  - unless index.eql?(0)
+                    .info-sector
+                      = link_to 'More Info', banner.sector, class: 'btn btn-green button'
 
     .col-md-2.text-left
     
@@ -93,28 +125,103 @@ section.section_area.with_padding
 
 
     .container.text-center
-      h1.boldtext =@content[0].title.html_safe unless @content[0].nil?
-      p.text-muted
-      h3  =@content[0].description.html_safe unless @content[0].nil?
+      -if params[:locale] == "es"
+        h1.boldtext =@content[0].try(:es_title).try(:html_safe) unless @content[0].nil?
+        p.text-muted
+        h3  =@content[0].try(:es_description).try(:html_safe) unless @content[0].nil?
+      -elsif params[:locale] == 'tr'
+        h1.boldtext =@content[0].try(:tr_title).try(:html_safe) unless @content[0].nil?
+        p.text-muted
+        h3  =@content[0].try(:tr_description).try(:html_safe) unless @content[0].nil?
+      -else
+        h1.boldtext =@content[0].try(:title).try(:html_safe) unless @content[0].nil?
+        p.text-muted
+        h3  =@content[0].try(:description).try(:html_safe) unless @content[0].nil?
 
 .col-md-12
   .gallery_menu.row
-    - @sectors.each_with_index do |sector, i|
-      .col-md-3.col-sm-6.sector_thumb.no-padding
+    - @sectors.each_with_index do | sector, i | 
+      - if(@sectors.length >= 4)
+        .col-md-3.col-sm-6.sector_thumb.no-padding
 
-        = link_to "#{sector_path(sector)}" do
-          = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name
-          .carousel-caption.mylink.twoline
-            span =sector.name
-        end
+          = link_to "#{sector_path(sector)}" do
+            = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name
+            .carousel-caption.mylink.twoline
+              -if params[:locale] == "es"
+                span =sector.es_name
+              -elsif params[:locale] == 'tr'
+                span =sector.tr_name
+              -else
+                span =sector.name
 
 
-      - if((i + 1) % 4 == 0)
-        .clear_fix_site
+        - if((i + 1) % 4 == 0)
+          .clear_fix_site
+
+      - elsif(@sectors.length == 1) 
+        .col-md-4.col-sm-4.sector_thumb.no-padding
+        .col-md-4.col-sm-4.sector_thumb.no-padding
+          
+          = link_to "#{sector_path(sector)}" do 
+            = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
+            .carousel-caption.mylink.twoline
+              -if params[:locale] == "es"
+                span =sector.es_name
+              -elsif params[:locale] == 'tr'
+                span =sector.tr_name
+              -else
+                span =sector.name 
+      
+      - elsif(@sectors.length == 2)
+        - if i == 0
+          .col-md-3.col-sm-6.sector_thumb.no-padding
+          
+          .col-md-3.col-sm-6.sector_thumb.no-padding
+            = link_to "#{sector_path(sector)}" do  
+              = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
+              .carousel-caption.mylink.twoline
+                -if params[:locale] == "es"
+                  span =sector.es_name
+                -elsif params[:locale] == 'tr'
+                  span =sector.tr_name
+                -else
+                  span =sector.name
+        
+        -else 
+          .col-md-3.col-sm-6.sector_thumb.no-padding
+            = link_to "#{sector_path(sector)}" do  
+              = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
+              .carousel-caption.mylink.twoline
+                -if params[:locale] == "es"
+                  span =sector.es_name
+                -elsif params[:locale] == 'tr'
+                  span =sector.tr_name
+                -else
+                  span =sector.name
+
+      - elsif(@sectors.length == 3)  
+        .col-md-4.col-sm-4.sector_thumb.no-padding
+
+          = link_to "#{sector_path(sector)}" do  
+            = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
+              .carousel-caption.mylink.twoline
+                -if params[:locale] == "es"
+                  span =sector.es_name
+                -elsif params[:locale] == 'tr'
+                  span =sector.tr_name
+                -else
+                  span =sector.name
 
 section.section_area.with_padding
 
 
     .container.text-center
-      h1.boldtext =@content[1].title.html_safe unless @content[1].nil?
-      h3 =@content[1].description.html_safe unless @content[1].nil?
+      -if params[:locale] == "es"
+        h1.boldtext =@content[1].try(:es_title).try(:html_safe) unless @content[1].nil?
+        h3  =@content[1].try(:es_description).try(:html_safe) unless @content[1].nil?
+      -elsif params[:locale] == 'tr'
+        h1.boldtext =@content[1].try(:tr_title).try(:html_safe) unless @content[1].nil?
+        h3  =@content[1].try(:tr_description).try(:html_safe) unless @content[1].nil?
+      -else
+        h1.boldtext =@content[1].try(:title).try(:html_safe) unless @content[1].nil?
+        h3  =@content[1].try(:description).try(:html_safe) unless @content[1].nil?

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722122328) do
+ActiveRecord::Schema.define(version: 20160728193737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,10 @@ ActiveRecord::Schema.define(version: 20160722122328) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.text     "es_description"
+    t.text     "tr_description"
+    t.string   "es_title"
+    t.string   "tr_title"
     t.index ["sector_id"], name: "index_banners_on_sector_id", using: :btree
   end
 
@@ -74,6 +78,16 @@ ActiveRecord::Schema.define(version: 20160722122328) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.text     "es_bio"
+    t.text     "tr_bio"
+    t.string   "es_first_name"
+    t.string   "tr_first_name"
+    t.string   "es_last_name"
+    t.string   "tr_last_name"
+    t.string   "es_position"
+    t.string   "tr_position"
+    t.string   "es_governance_type"
+    t.string   "tr_governance_type"
   end
 
   create_table "brand_banners", force: :cascade do |t|
@@ -85,6 +99,10 @@ ActiveRecord::Schema.define(version: 20160722122328) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.text     "es_description"
+    t.text     "tr_description"
+    t.string   "es_title"
+    t.string   "tr_title"
   end
 
   create_table "brands", force: :cascade do |t|
@@ -105,6 +123,10 @@ ActiveRecord::Schema.define(version: 20160722122328) do
     t.datetime "logo_for_brand_updated_at"
     t.integer  "sector_id"
     t.integer  "new_investment_id"
+    t.text     "es_description"
+    t.text     "tr_description"
+    t.string   "es_name"
+    t.string   "tr_name"
     t.index ["new_investment_id"], name: "index_brands_on_new_investment_id", using: :btree
     t.index ["sector_id"], name: "index_brands_on_sector_id", using: :btree
   end
@@ -112,8 +134,12 @@ ActiveRecord::Schema.define(version: 20160722122328) do
   create_table "contents", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.text     "es_description"
+    t.text     "tr_description"
+    t.string   "es_title"
+    t.string   "tr_title"
   end
 
   create_table "executives", force: :cascade do |t|
@@ -130,6 +156,12 @@ ActiveRecord::Schema.define(version: 20160722122328) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.text     "bio"
+    t.text     "es_bio"
+    t.text     "tr_bio"
+    t.string   "es_first_name"
+    t.string   "tr_first_name"
+    t.string   "es_last_name"
+    t.string   "tr_last_name"
   end
 
   create_table "group_banners", force: :cascade do |t|
@@ -146,6 +178,10 @@ ActiveRecord::Schema.define(version: 20160722122328) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.text     "es_description"
+    t.text     "tr_description"
+    t.string   "es_title"
+    t.string   "tr_title"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -154,20 +190,34 @@ ActiveRecord::Schema.define(version: 20160722122328) do
     t.text     "executive_committee_description"
     t.text     "board_of_directors_description"
     t.string   "photo"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.text     "spirit"
+    t.text     "es_about"
+    t.text     "tr_about"
+    t.text     "es_model"
+    t.text     "tr_model"
+    t.text     "es_executive_committee_description"
+    t.text     "tr_executive_committee_description"
+    t.text     "es_board_of_directors_description"
+    t.text     "tr_board_of_directors_description"
+    t.text     "es_spirit"
+    t.text     "tr_spirit"
   end
 
   create_table "homes", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.text     "es_description"
+    t.text     "tr_description"
+    t.string   "es_title"
+    t.string   "tr_title"
   end
 
   create_table "investor_contents", force: :cascade do |t|
@@ -179,6 +229,10 @@ ActiveRecord::Schema.define(version: 20160722122328) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.text     "es_description"
+    t.text     "tr_description"
+    t.string   "es_title"
+    t.string   "tr_title"
   end
 
   create_table "investors", force: :cascade do |t|
@@ -191,6 +245,12 @@ ActiveRecord::Schema.define(version: 20160722122328) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.text     "es_description"
+    t.text     "tr_description"
+    t.string   "es_firstname"
+    t.string   "tr_firstname"
+    t.string   "es_lastname"
+    t.string   "tr_lastname"
   end
 
   create_table "languages", force: :cascade do |t|
@@ -209,6 +269,10 @@ ActiveRecord::Schema.define(version: 20160722122328) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.text     "es_description"
+    t.text     "tr_description"
+    t.string   "es_title"
+    t.string   "tr_title"
   end
 
   create_table "post_banners", force: :cascade do |t|
@@ -220,6 +284,10 @@ ActiveRecord::Schema.define(version: 20160722122328) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.text     "es_description"
+    t.text     "tr_description"
+    t.string   "es_title"
+    t.string   "tr_title"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -228,6 +296,12 @@ ActiveRecord::Schema.define(version: 20160722122328) do
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "es_content"
+    t.text     "tr_content"
+    t.string   "es_title"
+    t.string   "tr_title"
+    t.string   "es_author"
+    t.string   "tr_author"
   end
 
   create_table "sector_banners", force: :cascade do |t|
@@ -239,6 +313,10 @@ ActiveRecord::Schema.define(version: 20160722122328) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.text     "es_description"
+    t.text     "tr_description"
+    t.string   "es_title"
+    t.string   "tr_title"
   end
 
   create_table "sector_brands", force: :cascade do |t|
@@ -262,6 +340,10 @@ ActiveRecord::Schema.define(version: 20160722122328) do
     t.datetime "sector_photo_updated_at"
     t.string   "icon_image"
     t.integer  "order"
+    t.text     "es_description"
+    t.text     "tr_description"
+    t.string   "es_name"
+    t.string   "tr_name"
   end
 
   create_table "social_media", force: :cascade do |t|
