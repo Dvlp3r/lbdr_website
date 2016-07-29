@@ -283,8 +283,7 @@ li.active a {
   left: -20px; 
   margin: -18px 0 0; 
   position: absolute; 
-  top: 50%; 
-  width: 5px; 
+  top: 50%; width: 5px; 
   font-size:30px !important
 }
 .banner .logo-information p { 
@@ -293,14 +292,6 @@ li.active a {
 .sectors a p, .news ul li p { 
   font-size:18px !important; 
   color:#000 !important;
-}
-
-@media(max-width:640px){
-.sector-img{
-  position: relative;
-  bottom: 20px;
-  height: 100%;
- }
 }
 
 @media (min-width:641px){
@@ -323,7 +314,8 @@ li.active a {
 }
 
 @media (max-width:767px){
-  a { outline:none !important; 
+  a { 
+    outline:none !important; 
     outline-offset:0px !important;
   }
   /*home page responsive css */ 
@@ -396,7 +388,7 @@ li.active a {
   .sectors .sector-img { 
     text-align:center !important;
   }
-  .sectors .sector-img h1 { 
+  .sectors .sector-img h1 {
     margin:15px 0 0 0 !important;
   }
 
@@ -407,9 +399,8 @@ li.active a {
   .brand-tabs .slick-slide { 
     height:auto !important;
   }
-
   img.brand-logo-thumb { 
-    margin:15px 0 !important; 
+    margin:15px 0 !important;
     border: 1px solid #ccc !important;
   }
   img.brand-logo-thumb2 { 
@@ -419,10 +410,10 @@ li.active a {
     margin-top:0px !important;
   }
   .brand-tabs .slick-prev { 
-    margin-top:-25px !important;
+    margin-top:-52px !important;
   }
   .brand-tabs .slick-next { 
-    margin-top:-25px !important;
+    margin-top:-52px !important;
   }
   .brand-tabs .slick-center h3 { 
     right:0 !important; 
@@ -430,7 +421,9 @@ li.active a {
     font-size:32px !important;
   }
   .slick-list { 
-    overflow:visible !important;
+    overflow-y:visible !important; 
+    overflow-x: hidden !important; 
+    min-height: 230px !important;
   }
   .tab-content { 
     margin-top:40px !important;
@@ -469,8 +462,6 @@ li.active a {
   p { 
     font-size:18px !important
   }
-
-
 }
 
 @media (max-width:350px){
