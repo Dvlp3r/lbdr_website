@@ -357,5 +357,8 @@ function getSelect(lang) {
   var pathname = window.location.pathname;
   var path = pathname.split('/')
   var value = lang.value;
+  if (value == ""){
+    return
+  }
   window.location.replace(path[0]+"/"+value);  
 }
