@@ -273,21 +273,50 @@ li.active a {
   }
 }
 
-@media(max-width:640px){
-.sector-img{
-  position: relative;
-  bottom: 20px;
-  height: 100%;
- }
+.banner .logo-information h4 { 
+  position:relative;
+}
+.banner .logo-information h4::before { 
+  background: #fff none repeat scroll 0 0; 
+  content: ""; 
+  height: 100%; 
+  left: -20px; 
+  margin: -18px 0 0; 
+  position: absolute; 
+  top: 50%; width: 5px; 
+  font-size:30px !important
+}
+.banner .logo-information p { 
+  margin-top:40px;
+}
+.sectors a p, .news ul li p { 
+  font-size:18px !important; 
+  color:#000 !important;
 }
 
 @media (min-width:641px){
-  #myNavmenu .sidebar-logo-show img { margin: 26px 0 8% 5% !important;}
+  a { 
+    outline:none !important; 
+    outline-offset:0px !important;
+  }
+  #myNavmenu .sidebar-logo-show img { 
+    margin: 26px 0 8% 5% !important;
+  }
+  .text-center h4 { 
+    font-size:42px !important
+  }
+  img.brand-logo-thumb2, img.brand-logo-thumb { 
+    border: 1px solid #ccc !important;
+  }
+  .carousel-caption.mylink span { 
+    width:100% !important;
+  }
 }
 
 @media (max-width:767px){
   a { 
-    outline:none !important
+    outline:none !important; 
+    outline-offset:0px !important;
   }
   /*home page responsive css */ 
   .banner .banner-body .banner-content { 
@@ -329,11 +358,16 @@ li.active a {
   .footer1 .copyright.text-right, .footer1.text-right { 
     float:left !important; 
     padding-bottom: 15px; 
-    width: 100%;
+    width: 100%; 
+    text-align:left !important; 
+    font-size: 14px !important;
   }
   .footer1 .widget { 
     margin-bottom:0 !important;
   }
+  .footer1 .copyright { 
+    margin: 5px 30px 0 0 !important;
+  } 
 
   /*group page responsive css */
   .group-info { 
@@ -354,7 +388,7 @@ li.active a {
   .sectors .sector-img { 
     text-align:center !important;
   }
-  .sectors .sector-img h1 { 
+  .sectors .sector-img h1 {
     margin:15px 0 0 0 !important;
   }
 
@@ -367,20 +401,32 @@ li.active a {
   }
   img.brand-logo-thumb { 
     margin:15px 0 !important;
+    border: 1px solid #ccc !important;
+  }
+  img.brand-logo-thumb2 { 
+    border: 1px solid #ccc !important;
   }
   .brand-tabs .col-8 a { 
     margin-top:0px !important;
   }
   .brand-tabs .slick-prev { 
-    margin-top:-25px !important;
+    margin-top:-52px !important;
   }
   .brand-tabs .slick-next { 
-    margin-top:-25px !important;
+    margin-top:-52px !important;
   }
   .brand-tabs .slick-center h3 { 
     right:0 !important; 
     margin:50px 0 0 0 !important; 
-    font-size:26px !important;
+    font-size:32px !important;
+  }
+  .slick-list { 
+    overflow-y:visible !important; 
+    overflow-x: hidden !important; 
+    min-height: 230px !important;
+  }
+  .tab-content { 
+    margin-top:40px !important;
   }
 
   /* Investor page responsive css */
@@ -391,7 +437,8 @@ li.active a {
 
   /* new-investment page responsive css */
   .description { 
-    margin:0 !important;}
+    margin:0 !important;
+  }
 
   .body-padding { 
     padding-top:0 !important;
@@ -412,7 +459,9 @@ li.active a {
     padding: 12px 30px !important; 
     vertical-align: middle !important;
   }
-
+  p { 
+    font-size:18px !important
+  }
 }
 
 @media (max-width:350px){
