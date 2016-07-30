@@ -322,14 +322,14 @@ h1 {
 
 @media  screen and (max-width: 767px)  {
   .brand-tabs .slick-prev {
-    left: 0;
+    left: -4px;
     margin-top: -60px;
     position: absolute;
   }
 
   .brand-tabs .slick-next {
     margin-top: -60px;
-    right: 14px;
+    right: 6px;
     position: absolute;
   }
 }
