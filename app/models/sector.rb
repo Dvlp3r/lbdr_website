@@ -1,4 +1,5 @@
 class Sector < ApplicationRecord
+  include CommonMethods
   has_many :sector_brands
   has_many :brands, through: :sector_brands
 

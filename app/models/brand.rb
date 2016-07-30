@@ -1,4 +1,6 @@
 class Brand < ApplicationRecord
+  include CommonMethods
+  
   has_many :sector_brands
   has_many :sectors, through: :sector_brands
   

@@ -1,9 +1,8 @@
 .row
   .col-md-4
-  
   .col-md-4
     .people.col-md-12
       .group-image style='background-image: url("#{@executive.photo(:thumb)}")'
-      h4 ="#{@executive.first_name} #{@executive.last_name}"
-      p =@executive.bio
+      h4 ="#{@executive.get_first_name(params[:locale])} #{@executive.get_last_name(params[:locale])}"
+      p =@executive.get_bio(params[:locale])
   .col-md-4

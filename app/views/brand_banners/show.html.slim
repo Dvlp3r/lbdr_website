@@ -1,11 +1,10 @@
 p#notice = notice
-
 p
   strong Title:
-  = @brand_banner.title
+  = @brand_banner.get_title(params[:locale])
 p
   strong Description:
-  = @brand_banner.description
+  = @brand_banner.get_description(params[:locale])
 
 = link_to 'Edit', edit_brand_banner_path(@brand_banner)
 '|

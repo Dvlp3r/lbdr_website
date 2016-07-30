@@ -1,0 +1,14 @@
+.logo-information
+  .col-md-10.slider_leftpart
+    .col-md-3.text-left
+    .col-md-9.text-left
+      - @banners.each do |banner|
+        .banner-description.hide
+          .title
+            - unless @banners[0].blank?
+              h1 = @banners[0].get_title(params[:locale])
+          .desc
+            - unless @banners[0].blank?
+              h1 = @banners[0].get_description(params[:locale])
+
+  .col-md-2.text-left

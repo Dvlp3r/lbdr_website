@@ -1,36 +1,9 @@
 .banner
-
   .banner-body
     - @banners.each do |banner|
       .banner-content style='background-image: url("#{banner.photo(:big)}");'
-
-  .logo-information
-    .col-md-10.slider_leftpart
-
-      .col-md-3.text-left
-
-      .col-md-9.text-left
-
-        - @banners.each do |banner|
-
-          .banner-description.hide
-            .title
-              -if params[:locale] == "es"
-                h1 =banner.try(:es_title).try(:html_safe) unless banner.nil?
-              -elsif params[:locale] == 'tr'
-                h1 =banner.try(:tr_title).try(:html_safe) unless banner.nil?
-              -else
-                h1 =banner.title.html_safe unless banner.nil?
-
-            .desc
-              -if params[:locale] == "es"
-                p =banner.try(:es_description).try(:html_safe) unless banner.nil?
-              -elsif params[:locale] == 'tr'
-                p =banner.try(:tr_description).try(:html_safe) unless banner.nil?
-              -else
-                p =banner.description.html_safe unless banner.nil?
-
-    .col-md-2.text-left
+  
+  = render partial: 'shared/logo_information'
 
   .arrow
     .arrow-click
@@ -39,7 +12,6 @@
 
 .container.section
   .group-info
-
     .triangle
 
     ul#tabs.nav data-tabs="pills"
@@ -54,30 +26,15 @@
     #my-tab-content.tab-content.col-md-12
       #model.tab-pane
         .info
-          -if params[:locale] == "es"
-            =@group.try(:es_model).try(:html_safe) unless @group.nil?
-          -elsif params[:locale] == 'tr'
-            =@group.try(:tr_model).try(:html_safe) unless @group.nil?
-          -else
-            =@group.model.html_safe unless @group.nil?
+          = @group.get_model(params[:locale]) unless @group.blank?
 
       #about.tab-pane.active
         .info
-          -if params[:locale] == "es"
-            =@group.try(:es_about).try(:html_safe) unless @group.nil?
-          -elsif params[:locale] == 'tr'
-            =@group.try(:tr_about).try(:html_safe) unless @group.nil?
-          -else
-            =@group.about.html_safe unless @group.nil?
+          = @group.get_about(params[:locale]) unless @group.blank?
 
       #spirit.tab-pane
         .info
-          -if params[:locale] == "es"
-            =@group.try(:es_spirit).try(:html_safe) unless @group.nil?
-          -elsif params[:locale] == 'tr'
-            =@group.try(:tr_spirit).try(:html_safe) unless @group.nil?
-          -else
-            =@group.spirit.html_safe unless @group.nil?
+          = @group.get_spirit(params[:locale]) unless @group.blank?
 
 .governance-section
   .container
@@ -96,30 +53,21 @@
       #my-tab-content.tab-content
         #executive_committee.tab-pane.fade.in.active
           .governance-description.col-md-12
-            -if params[:locale] == "es"
-              =@group.try(:es_executive_committee_description).try(:html_safe) unless @group.nil?
-            -elsif params[:locale] == 'tr'
-              =@group.try(:tr_executive_committee_description).try(:html_safe) unless @group.nil?
-            -else
-              =@group.executive_committee_description.html_safe unless @group.nil?
-
+            - unless @group.blank?
+              = @group.get_executive_committee_description(params[:locale]) 
           .row
             .col-md-12
               - @executive_committee.each do |exec|
                 .people.col-md-3
                   = link_to "#{executive_path(exec)}" do 
                     .group-image style='background-image: url("#{exec.photo(:thumb)}")'
-                    h4 = "#{exec.first_name} #{exec.last_name}"
+                    h4 = "#{exec.get_first_name(params[:locale])} #{exec.get_last_name(params[:locale])}"
                     p =exec.position
 
         #board_of_directors.tab-pane.fade
           .governance-description.col-md-12
-            -if params[:locale] == "es"
-              =@group.try(:es_board_of_directors_description).try(:html_safe) unless @group.nil?
-            -elsif params[:locale] == 'tr'
-              =@group.try(:tr_board_of_directors_description).try(:html_safe) unless @group.nil?
-            -else
-              =@group.board_of_directors_description.html_safe unless @group.nil?
+            - unless @group.blank?
+              = @group.get_board_of_directors_description(params[:locale])
           
           .row
             .col-md-12
@@ -127,5 +75,5 @@
                 .people.col-md-3
                   = link_to "#{board_member_path(board)}" do
                     .group-image style='background-image: url("#{board.photo(:thumb)}")'
-                    h4 ="#{board.first_name} #{board.last_name}"
-                    p =board.position
+                    h4 ="#{board.get_first_name(params[:locale])} #{board.get_last_name(params[:locale])}"
+                    p = board.get_position(params[:locale])

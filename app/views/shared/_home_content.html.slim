@@ -1,0 +1,6 @@
+section.section_area.with_padding
+  .container.text-center
+    - if content.present?
+      h1.boldtext =content.get_title(params[:locale])
+      p.text-muted
+      h3 =content.get_description(params[:locale])

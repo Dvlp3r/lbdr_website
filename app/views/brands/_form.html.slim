@@ -8,14 +8,14 @@
             li = message
 
     .field
-      = f.label :name
-      = f.text_field :name, :class => 'form-control'
+      = f.label :en_name
+      = f.text_field :en_name, :class => 'form-control'
     .field
       = f.label :url
       = f.text_field :url, :class => 'form-control'
     .field
-      = f.label :description
-      = f.text_area :description, :class => 'form-control'
+      = f.label :en_description
+      = f.text_area :en_description, :class => 'form-control'
     .field
       = f.label :sector_id
       = f.select(:sector_id, Sector.all.collect {|s| [ s.name, s.id] }, {include_blank: true})

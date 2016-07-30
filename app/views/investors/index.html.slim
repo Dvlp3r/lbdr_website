@@ -1,19 +1,14 @@
 .banner
-
   .banner-body
     - unless @investor_content.nil?
       .banner-content style='background-image: url("#{@investor_content.photo(:big)}");'
-
   .logo-information
     .col-md-10.slider_leftpart
-
       .col-md-3.text-left
-
       .col-md-9.text-left
-
-          .banner-description.hide
-            .title
-              h1 = "Investors"
+        .banner-description.hide
+          .title
+            h1 = "Investors"
               
     .col-md-2.text-left
 
@@ -23,7 +18,6 @@
 
 .container.section
   .group-info
-
     .triangle
 
     ul#tabs.nav data-tabs="pills"
@@ -37,43 +31,24 @@
 
     #my-tab-content.tab-content.col-md-12
       #profile.tab-pane
-        -if params[:locale] == "es"
-          h1 =@investor_content.es_title unless @investor_content.nil?
-          p =@investor_content.es_description unless @investor_content.nil?
-        -elsif params[:locale] == 'tr'
-          h1 =@investor_content.tr_title unless @investor_content.nil?
-          p =@investor_content.tr_description unless @investor_content.nil?
-        -else
-          h1 =@investor_content.title unless @investor_content.nil?
-          p =@investor_content.description unless @investor_content.nil?
+        - unless @investor_content.blank?
+          h1 = @investor_content.get_title(params[:locale])
+          p = @investor_content.get_description(params[:locale]) 
+
       #shareholders.tab-pane.active
         .row
             .col-md-12
               - @investors.each do |investor|
                 .people.col-md-3
                   .group-image style='background-image: url("#{investor.photo(:thumb)}")'
-                  -if params[:locale] == "es"
-                    h4 ="#{investor.es_firstname} #{investor.es_lastname}"
-                    p =investor.try(:es_description).try(:html_safe)
-                  -elsif params[:locale] == 'tr'
-                    h4 ="#{investor.tr_firstname} #{investor.tr_lastname}"
-                    p =investor.try(:tr_description).try(:html_safe)
-                  -else
-                    h4 ="#{investor.firstname} #{investor.lastname}"
-                    p =investor.try(:description).try(:html_safe)
+                  - unless investor.blank?
+                    h4 = "#{investor.get_firstname(params[:locale])} #{investor.get_lastname(params[:locale])}"
+                    p = investor.get_description(params[:locale])
+
       #investment.tab-pane
-        -if params[:locale] == "es"
-          h1 =@new_investment.es_title unless @new_investment.nil?
-          p =@new_investment.try(:es_description).try(:html_safe) unless @new_investment.nil?
-        -elsif params[:locale] == 'tr'
-          h1 =@new_investment.tr_title unless @new_investment.nil?
-          p =@new_investment.try(:tr_description).try(:html_safe) unless @new_investment.nil?
-        -else
-          h1 =@new_investment.title unless @new_investment.nil?
-          p =@new_investment.description.try(:html_safe) unless @new_investment.nil?
-
-
-
+        - unless @new_investment.blank?
+          h1 = @new_investment.get_title(params[:locale])
+          p = @new_investment.get_description(params[:locale])       
 
 div style="clear:both"
 

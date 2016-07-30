@@ -4,8 +4,8 @@ p#notice = notice
   .post-show-wrapper.col-md-8.col-md-offset-2
     h1= @post.title
     h4.text-center = @post.created_at.strftime('%B %e, %Y')
-    h4.text-center = @post.author
-    p.post-content = @post.content
+    h4.text-center = @post.get_author(params[:locale])
+    p.post-content = @post.get_content(params[:locale])
 
 = link_to 'Edit', edit_post_path(@post)
 '|

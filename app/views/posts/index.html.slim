@@ -4,35 +4,8 @@
     - @banners.each do |banner|
       .banner-content style='background-image: url("#{banner.photo(:big)}");'
 
-  .logo-information
-    .col-md-10.slider_leftpart
-
-      .col-md-3.text-left
-
-      .col-md-9.text-left
-
-        - @banners.each do |banner|
-
-          .banner-description.hide
-            .title
-              -if params[:locale] == "es"
-                h1 =banner.try(:es_title).try(:html_safe) unless banner.nil?
-              -elsif params[:locale] == 'tr'
-                h1 =banner.try(:tr_title).try(:html_safe) unless banner.nil?
-              -else
-                h1 =banner.title.html_safe unless banner.nil?
-
-            .desc
-              -if params[:locale] == "es"
-                p =banner.try(:es_description).try(:html_safe) unless banner.nil?
-              -elsif params[:locale] == 'tr'
-                p =banner.try(:tr_description).try(:html_safe) unless banner.nil?
-              -else
-                p =banner.description.html_safe unless banner.nil?
-
-    .col-md-2.text-left
-
-
+  = render partial: 'shared/logo_information'
+  
 .container.body-padding
   .container.news.col-md-8.col-md-offset-2
     h1 News.
@@ -40,12 +13,12 @@
     ul
       - @posts.each_with_index do |post, i|
         li
-          h2 =post.title
-          h3 =post.author
+          h2 =post.get_title(params[:locale])
+          h3 =post.get_author(params[:locale])
           h4 =post.created_at.strftime('%B %e, %Y')
-          p = sanitize(post.content).html_safe[0, 397]
+          p = sanitize(post.get_content(params[:locale])).html_safe[0, 397]
           div id="viewdetails#{i}" class="collapse" 
-            p =post.content.html_safe[397, 4000]
+            p =post.get_content(params[:locale]).html_safe[397, 4000]
           = link_to '', "javascript:void(0);" , class: 'btn btn-default', 'data-toggle': 'collapse', 'data-target': '#viewdetails' + i.to_s
 
     = paginate @posts

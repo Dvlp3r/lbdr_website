@@ -1,5 +1,4 @@
 .banner
-
   .banner-body
     - @banners.each_with_index do |banner, index|
       - unless banner.nil?
@@ -12,216 +11,34 @@
   
   .logo-information
     .col-md-10.slider_leftpart
-
       .col-md-3.text-left
-
       .col-md-9.text-left
-
         .logo_lbdr =image_tag('lbdr.svg')
-
         - @banners.each_with_index do |banner, index|
-
           .banner-description.hide
             - if index.eql?(9)
               .title
-                -if params[:locale] == "es"
-                  h1 = @new_investment.try(:es_title).try(:html_safe) unless @new_investment.nil?
-                -elsif params[:locale] == 'tr'
-                  h1 = @new_investment.try(:tr_title).try(:html_safe) unless @new_investment.nil?
-                -else
-                  h1 = @new_investment.title.html_safe unless @new_investment.nil?
+                h1 = @new_investment.get_title(params[:locale]) unless @new_investment.blank?
               .desc
-                -if params[:locale] == "es"
-                  p = @new_investment.try(:es_description).try(:html_safe)unless @new_investment.nil?
-                  - unless index.eql?(0)
-                    .info-sector
-                      = link_to 'More Info', new_investments_path, class: 'btn btn-green button'
-                -elsif params[:locale] == 'tr'
-                  p = @new_investment.try(:tr_description).try(:html_safe) unless @new_investment.nil?
-                  - unless index.eql?(0)
-                    .info-sector
-                      = link_to 'More Info', new_investments_path, class: 'btn btn-green button'
-                -else
-                  p = @new_investment.description.html_safe unless @new_investment.nil?
-                  - unless index.eql?(0)
-                    .info-sector
-                      = link_to 'More Info', new_investments_path, class: 'btn btn-green button'  
+                p = @new_investment.get_description(params[:locale])  unless @new_investment.blank?
+                - unless index.eql?(0)
+                  .info-sector
+                    = link_to 'More Info', new_investments_path, class: 'btn btn-green button'  
             - else
               .title
-                -if params[:locale] == "es"
-                  h1 = banner.try(:es_title).try(:html_safe) unless banner.nil?
-                -elsif params[:locale] == 'tr'
-                  h1 = banner.try(:tr_title).try(:html_safe) unless banner.nil?
-                -else
-                  h1 = banner.title.html_safe unless banner.nil?
+                h1 = banner.get_title(params[:locale])
               .desc
-                -if params[:locale] == "es"
-                  p = banner.try(:es_description).try(:html_safe) unless banner.nil?
-                  - unless index.eql?(0)
-                    .info-sector
-                      = link_to 'More Info', banner.sector, class: 'btn btn-green button'
-                -elsif params[:locale] == 'tr'
-                  p = banner.try(:tr_description).try(:html_safe) unless banner.nil?
-                  - unless index.eql?(0)
-                    .info-sector
-                      = link_to 'More Info', banner.sector, class: 'btn btn-green button'
-                -else
-                  p = banner.description.html_safe unless banner.nil?
-                  - unless index.eql?(0)
-                    .info-sector
-                      = link_to 'More Info', banner.sector, class: 'btn btn-green button'
-
+                p = banner.get_description(params[:locale])
+                - unless index.eql?(0)
+                  .info-sector
+                    = link_to 'More Info', banner.sector, class: 'btn btn-green button'
     .col-md-2.text-left
     
-
   .arrow
     .arrow-click
       .arrow-in
+  = render partial: 'shared/right_menu'
 
-  #menu-wrapper
-    ul.nav
-      li.cell
-        i.fa.fa-home.fa-2
-        span Home
-
-      li.cell
-        i.fa.fa-anchor.fa-2
-        span link-to="#{'/sectors/' + @banners[1].sector.id.to_s}" Marine
-
-      li.cell
-        i.fa.fa-car.fa-2
-        span link-to="#{'/sectors/' + @banners[2].sector.id.to_s}" Automotive
-
-      li.cell
-        i.fa.fa-paper-plane.fa-2
-        span link-to="#{'/sectors/' + @banners[3].sector.id.to_s}" Aviation
-
-      li.cell
-        i.fa.fa-coffee.fa-2
-        span link-to="#{'/sectors/' + @banners[4].sector.id.to_s}" Real Estate
-
-      li.cell
-        i.fa.fa-child.fa-2
-        span link-to="#{'/sectors/' + @banners[5].sector.id.to_s}" Entertainment and Leisure
-
-      li.cell
-        i.fa.fa-star.fa-2
-        span link-to="#{'/sectors/' + @banners[6].sector.id.to_s}" Fashion And Accessories
-
-      li.cell
-        i.fa.fa-video-camera.fa-2
-        span link-to="#{'/sectors/' + @banners[7].sector.id.to_s}" Media
-
-      li.cell
-        i.fa.fa-wifi.fa-2
-        span link-to="#{'/sectors/' + @banners[8].sector.id.to_s}" Technology
-
-      li.cell
-        i.fa.fa-diamond.fa-2
-        span link-to="#{'/new-investment'}" New Investments
-
-
-section.section_area.with_padding
-
-
-    .container.text-center
-      -if params[:locale] == "es"
-        h1.boldtext =@content[0].try(:es_title).try(:html_safe) unless @content[0].nil?
-        p.text-muted
-        h3  =@content[0].try(:es_description).try(:html_safe) unless @content[0].nil?
-      -elsif params[:locale] == 'tr'
-        h1.boldtext =@content[0].try(:tr_title).try(:html_safe) unless @content[0].nil?
-        p.text-muted
-        h3  =@content[0].try(:tr_description).try(:html_safe) unless @content[0].nil?
-      -else
-        h1.boldtext =@content[0].try(:title).try(:html_safe) unless @content[0].nil?
-        p.text-muted
-        h3  =@content[0].try(:description).try(:html_safe) unless @content[0].nil?
-
-.col-md-12
-  .gallery_menu.row
-    - @sectors.each_with_index do | sector, i | 
-      - if(@sectors.length >= 4)
-        .col-md-3.col-sm-6.sector_thumb.no-padding
-
-          = link_to "#{sector_path(sector)}" do
-            = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name
-            .carousel-caption.mylink.twoline
-              -if params[:locale] == "es"
-                span =sector.es_name
-              -elsif params[:locale] == 'tr'
-                span =sector.tr_name
-              -else
-                span =sector.name
-
-
-        - if((i + 1) % 4 == 0)
-          .clear_fix_site
-
-      - elsif(@sectors.length == 1) 
-        .col-md-4.col-sm-4.sector_thumb.no-padding
-        .col-md-4.col-sm-4.sector_thumb.no-padding
-          
-          = link_to "#{sector_path(sector)}" do 
-            = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
-            .carousel-caption.mylink.twoline
-              -if params[:locale] == "es"
-                span =sector.es_name
-              -elsif params[:locale] == 'tr'
-                span =sector.tr_name
-              -else
-                span =sector.name 
-      
-      - elsif(@sectors.length == 2)
-        - if i == 0
-          .col-md-3.col-sm-6.sector_thumb.no-padding
-          
-          .col-md-3.col-sm-6.sector_thumb.no-padding
-            = link_to "#{sector_path(sector)}" do  
-              = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
-              .carousel-caption.mylink.twoline
-                -if params[:locale] == "es"
-                  span =sector.es_name
-                -elsif params[:locale] == 'tr'
-                  span =sector.tr_name
-                -else
-                  span =sector.name
-        
-        -else 
-          .col-md-3.col-sm-6.sector_thumb.no-padding
-            = link_to "#{sector_path(sector)}" do  
-              = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
-              .carousel-caption.mylink.twoline
-                -if params[:locale] == "es"
-                  span =sector.es_name
-                -elsif params[:locale] == 'tr'
-                  span =sector.tr_name
-                -else
-                  span =sector.name
-
-      - elsif(@sectors.length == 3)  
-        .col-md-4.col-sm-4.sector_thumb.no-padding
-
-          = link_to "#{sector_path(sector)}" do  
-            = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
-              .carousel-caption.mylink.twoline
-                -if params[:locale] == "es"
-                  span =sector.es_name
-                -elsif params[:locale] == 'tr'
-                  span =sector.tr_name
-                -else
-                  span =sector.name
-
-section.section_area.with_padding
-
-
-    .container.text-center
-      -if params[:locale] == "es"
-        h1.boldtext =@content[1].try(:es_title).try(:html_safe) unless @content[1].nil?
-        h3  =@content[1].try(:es_description).try(:html_safe) unless @content[1].nil?
-      -elsif params[:locale] == 'tr'
-        h1.boldtext =@content[1].try(:tr_title).try(:html_safe) unless @content[1].nil?
-        h3  =@content[1].try(:tr_description).try(:html_safe) unless @content[1].nil?
-      -else
-        h1.boldtext =@content[1].try(:title).try(:html_safe) unless @content[1].nil?
-        h3  =@content[1].try(:description).try(:html_safe) unless @content[1].nil?
+= render partial: 'shared/home_content', locals: {content: @content[0]}
+= render partial: 'shared/sector'
+= render partial: 'shared/home_content', locals: {content: @content[1]}

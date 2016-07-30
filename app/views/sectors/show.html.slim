@@ -1,12 +1,7 @@
 .banner-sector
   .banner-sector-body
     .banner-sector-content style='background-image: url("#{@sector.sector_photo.url(:big)}");'
-      -if params[:locale] == "es"
-        h2 = @sector.es_name
-      -elsif params[:locale] == 'tr'
-        h2 = @sector.tr_name
-      -else
-        h2 = @sector.name
+      h2 = @sector.get_name(params[:locale])
 
       .arrow
         .arrow-click
@@ -17,12 +12,8 @@
 
 .container.description.col-md-8.col-md-offset-2
   .info
-    -if params[:locale] == "es"
-      = @sector.try(:es_description).try(:html_safe)
-    -elsif params[:locale] == 'tr'
-      = @sector.try(:tr_description).try(:html_safe)
-    -else
-      = @sector.description.html_safe
+    = @sector.get_description(params[:locale])
+    
 
 .col-md-12
   h3[style="text-align: center; font-size: 35px; font-weight: bold"]
@@ -50,78 +41,6 @@
   = link_to 'Edit', edit_sector_path(@sector), class: 'btn btn-danger'
   = link_to 'Back', sectors_path, class: 'btn btn-default'
 
-.col-md-12
-  .gallery_menu.row
-    - @sectors.each_with_index do | sector, i | 
-      - if(@sectors.length >= 4)
-        .col-md-3.col-sm-6.sector_thumb.no-padding
-
-          = link_to "#{sector_path(sector)}" do
-            = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name
-            .carousel-caption.mylink.twoline
-              -if params[:locale] == "es"
-                span =sector.es_name
-              -elsif params[:locale] == 'tr'
-                span =sector.tr_name
-              -else
-                span =sector.name
-
-
-        - if((i + 1) % 4 == 0)
-          .clear_fix_site
-
-      - elsif(@sectors.length == 1) 
-        .col-md-4.col-sm-4.sector_thumb.no-padding
-        .col-md-4.col-sm-4.sector_thumb.no-padding
-          
-          = link_to "#{sector_path(sector)}" do 
-            = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
-            .carousel-caption.mylink.twoline
-              -if params[:locale] == "es"
-                span =sector.es_name
-              -elsif params[:locale] == 'tr'
-                span =sector.tr_name
-              -else
-                span =sector.name 
-      
-      - elsif(@sectors.length == 2)
-        - if i == 0
-          .col-md-3.col-sm-6.sector_thumb.no-padding
-          
-          .col-md-3.col-sm-6.sector_thumb.no-padding
-            = link_to "#{sector_path(sector)}" do  
-              = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
-              .carousel-caption.mylink.twoline
-                -if params[:locale] == "es"
-                  span =sector.es_name
-                -elsif params[:locale] == 'tr'
-                  span =sector.tr_name
-                -else
-                  span =sector.name
-        
-        -else 
-          .col-md-3.col-sm-6.sector_thumb.no-padding
-            = link_to "#{sector_path(sector)}" do  
-              = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
-              .carousel-caption.mylink.twoline
-                -if params[:locale] == "es"
-                  span =sector.es_name
-                -elsif params[:locale] == 'tr'
-                  span =sector.tr_name
-                -else
-                  span =sector.name
-
-      - elsif(@sectors.length == 3)  
-        .col-md-4.col-sm-4.sector_thumb.no-padding
-
-          = link_to "#{sector_path(sector)}" do  
-            = image_tag "#{sector.sector_photo.url(:original)}", :class => "img-responsive", :alt => sector.name  
-              .carousel-caption.mylink.twoline
-                -if params[:locale] == "es"
-                  span =sector.es_name
-                -elsif params[:locale] == 'tr'
-                  span =sector.tr_name
-                -else
-                  span =sector.name 
+= render partial: 'shared/sector' 
         
 .clearfix

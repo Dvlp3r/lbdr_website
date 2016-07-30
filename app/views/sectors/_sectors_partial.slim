@@ -3,17 +3,8 @@
     .col-md-3.col-ms-3
       .sector-image
         .styled-div style='background-image: url("#{sector.sector_photo(:thumb)}");'
-          -if params[:locale] == "es"
-            h3.sector-name = sector.es_name
-          -elsif params[:locale] == 'tr'
-            h3.sector-name = sector.tr_name
-          -else
-            h3.sector-name = sector.name
+          h3.sector-name = sector.get_name(params[:locale])
     .col-md-9.col-ms-9
-      -if params[:locale] == "es"
-        p =( truncate sanitize(sector.es_description), length: 160 ) unless sector.description.nil?
-      -elsif params[:locale] == 'tr'
-        p =( truncate sanitize(sector.tr_description), length: 160 ) unless sector.description.nil?
-      -else
-        p =( truncate sanitize(sector.description), length: 160 ) unless sector.description.nil?
+      p =( truncate sanitize(sector.get_description(params[:locale])), length: 160 ) unless sector.nil?
+      
 end

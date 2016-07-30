@@ -1,13 +1,7 @@
 .banner-sector
   .banner-sector-body
     .banner-sector-content style='background-image: url("#{@brand.brand_photo.url(:big)}");'
-      -if params[:locale] == "es"
-        h2 = @brand.es_name
-      -elsif params[:locale] == 'tr'
-        h2 = @brand.tr_name
-      -else
-        h2 = @brand.name
-
+      h2 = @brand.get_name(params[:locale])
       .arrow
         .arrow-click
           .arrow-in
@@ -20,14 +14,9 @@
     = link_to @brand.url do
       = image_tag @brand.logo_for_brand.url(:thumb), :target => "_blank", :class=> 'brand-logo-thumb2'
     - @brand.sectors.each do |sector|
-      -if params[:locale] == "es"
-        h4 = sector.es_name
-      -elsif params[:locale] == 'tr'
-        h4 = sector.es_name
-      -else
-        h4 = sector.name
+      h4 = sector.get_name(params[:locale])
 
-  .description.container-fluid.col-md-8.col-md-offset-2.text-justify[style="color: #1a1a1a;"] = @brand.description.html_safe
+  .description.container-fluid.col-md-8.col-md-offset-2.text-justify[style="color: #1a1a1a;"] = @brand.get_description(params[:locale])
 
   .container-fluid
   = link_to 'Visit Website', @brand.url, :target => "_blank", :class=> 'btn btn-default btn-lg brand-show', :style => "width: 130px;"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728193737) do
+ActiveRecord::Schema.define(version: 20160729183037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20160728193737) do
 
   create_table "banners", force: :cascade do |t|
     t.integer  "sector_id"
-    t.string   "title"
-    t.text     "description"
+    t.string   "en_title"
+    t.text     "en_description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "order"
@@ -66,11 +66,11 @@ ActiveRecord::Schema.define(version: 20160728193737) do
   end
 
   create_table "board_members", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.text     "bio"
-    t.string   "position"
-    t.string   "governance_type"
+    t.string   "en_first_name"
+    t.string   "en_last_name"
+    t.text     "en_bio"
+    t.string   "en_position"
+    t.string   "en_governance_type"
     t.integer  "group_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(version: 20160728193737) do
   end
 
   create_table "brand_banners", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
+    t.string   "en_title"
+    t.text     "en_description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "photo_file_name"
@@ -106,9 +106,9 @@ ActiveRecord::Schema.define(version: 20160728193737) do
   end
 
   create_table "brands", force: :cascade do |t|
-    t.string   "name"
+    t.string   "en_name"
     t.string   "url"
-    t.text     "description"
+    t.text     "en_description"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "brand_image_id"
@@ -132,8 +132,8 @@ ActiveRecord::Schema.define(version: 20160728193737) do
   end
 
   create_table "contents", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
+    t.string   "en_title"
+    t.text     "en_description"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.text     "es_description"
@@ -143,8 +143,8 @@ ActiveRecord::Schema.define(version: 20160728193737) do
   end
 
   create_table "executives", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "en_first_name"
+    t.string   "en_last_name"
     t.string   "position"
     t.string   "photo"
     t.string   "governance_type"
@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(version: 20160728193737) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.text     "bio"
+    t.text     "en_bio"
     t.text     "es_bio"
     t.text     "tr_bio"
     t.string   "es_first_name"
@@ -165,8 +165,8 @@ ActiveRecord::Schema.define(version: 20160728193737) do
   end
 
   create_table "group_banners", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
+    t.string   "en_title"
+    t.text     "en_description"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.string   "group_photo_id"
@@ -185,10 +185,10 @@ ActiveRecord::Schema.define(version: 20160728193737) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.text     "about"
-    t.text     "model"
-    t.text     "executive_committee_description"
-    t.text     "board_of_directors_description"
+    t.text     "en_about"
+    t.text     "en_model"
+    t.text     "en_executive_committee_description"
+    t.text     "en_board_of_directors_description"
     t.string   "photo"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
@@ -196,7 +196,7 @@ ActiveRecord::Schema.define(version: 20160728193737) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.text     "spirit"
+    t.text     "en_spirit"
     t.text     "es_about"
     t.text     "tr_about"
     t.text     "es_model"
@@ -210,8 +210,8 @@ ActiveRecord::Schema.define(version: 20160728193737) do
   end
 
   create_table "homes", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
+    t.string   "en_title"
+    t.text     "en_description"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.text     "es_description"
@@ -221,8 +221,8 @@ ActiveRecord::Schema.define(version: 20160728193737) do
   end
 
   create_table "investor_contents", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
+    t.string   "en_title"
+    t.text     "en_description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "photo_file_name"
@@ -236,9 +236,9 @@ ActiveRecord::Schema.define(version: 20160728193737) do
   end
 
   create_table "investors", force: :cascade do |t|
-    t.string   "firstname"
-    t.string   "lastname"
-    t.text     "description"
+    t.string   "en_firstname"
+    t.string   "en_lastname"
+    t.text     "en_description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "photo_file_name"
@@ -261,8 +261,8 @@ ActiveRecord::Schema.define(version: 20160728193737) do
   end
 
   create_table "new_investments", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
+    t.string   "en_title"
+    t.text     "en_description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "photo_file_name"
@@ -276,8 +276,8 @@ ActiveRecord::Schema.define(version: 20160728193737) do
   end
 
   create_table "post_banners", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
+    t.string   "en_title"
+    t.text     "en_description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "photo_file_name"
@@ -291,9 +291,9 @@ ActiveRecord::Schema.define(version: 20160728193737) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "title"
-    t.string   "author"
-    t.text     "content"
+    t.string   "en_title"
+    t.string   "en_author"
+    t.text     "en_content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text     "es_content"
@@ -305,8 +305,8 @@ ActiveRecord::Schema.define(version: 20160728193737) do
   end
 
   create_table "sector_banners", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
+    t.string   "en_title"
+    t.text     "en_description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "photo_file_name"
@@ -329,8 +329,8 @@ ActiveRecord::Schema.define(version: 20160728193737) do
   end
 
   create_table "sectors", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
+    t.string   "en_name"
+    t.text     "en_description"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.string   "sector_photo_id"
