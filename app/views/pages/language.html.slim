@@ -8,3 +8,19 @@
   <p>This is some text.</p>
   <p>This is another text.</p>
 </div>
+
+<style>
+.jumbotron {
+margin-bottom: 0px;
+ background-image: url(world-map.jpg);
+ background-position: 0% 25%;
+ background-size: cover;
+ background-repeat: no-repeat;
+ color: white;
+ text-shadow: black 0.3em 0.3em 0.3em;
+}
+</style>
+
+
+.col-md-12[style="text-align: center; padding-bottom: 15px;"]
+  = select_tag 'set_locale', options_for_select(@languages), prompt: "Select language" ,:class=>"select_language", :onchange=>"getSelect(this)", :style => "background-color: #333333; color: white; padding-bottom: 5px;"
