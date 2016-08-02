@@ -424,7 +424,7 @@ button.navbar-toggle:hover {
       }
     }
 
-
+@media (min-width: 840px){
   .sidebar-logo-show1 {
 
     img{
@@ -432,7 +432,7 @@ button.navbar-toggle:hover {
       margin: 3px 0 8% 5% !important;
     }
   }
-
+}
   .sidebar-logo-hide {
     display: none;
   }
