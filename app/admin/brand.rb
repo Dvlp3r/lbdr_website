@@ -29,7 +29,7 @@ ActiveAdmin.register Brand do
       panel "Sectors" do
         table_for brand.sector_brands do
           column "name" do |sector_brand|
-            sector_brand.sector.name
+            sector_brand.sector.en_name
           end
         end
       end
