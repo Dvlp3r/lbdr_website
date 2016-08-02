@@ -14,11 +14,16 @@
 <br>
 <br>
 
-<h3>Please select your preferred language?</h3>
+<h3>Please select your preferred language</h3>
 
 .col-md-12
   = select_tag 'set_locale', options_for_select(@languages), prompt: "Select language" ,:class=>"select_language", :onchange=>"getSelect(this)", :style => "background-color: #333333; color: white;"
 
 </center>
+
+<br>
+<br>
+<br>
+
 </div>
 </div>
