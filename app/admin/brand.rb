@@ -8,7 +8,7 @@ ActiveAdmin.register Brand do
 
   form do |f|
     f.inputs "Brand Details" do
-      f.input :sector_ids, :as => :select, :collection => Sector.all.map {|u| [u.name, u.id]}, multiple: true
+      f.input :sector_ids, :as => :select, :collection => Sector.all.map {|u| [u.en_name, u.id]}, multiple: true
       f.input :new_investment
       f.input :en_name, label: 'Name in English'
       f.input :es_name, label: 'Name in Spanish'
