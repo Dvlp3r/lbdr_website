@@ -412,11 +412,18 @@ button.navbar-toggle:hover {
       width: 65%;
       margin: 16% 16% 0 16%;
     }
-
-    @media (min-width: $screen-md-min){
-
-    }
   }
+
+    @media (max-width: 640px){
+      .sidebar-logo-show1 {
+
+        img{
+          width: 58%;
+          margin: 28px 0 8% 5% !important;
+        }
+      }
+    }
+
 
   .sidebar-logo-show1 {
 
