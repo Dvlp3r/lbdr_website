@@ -5,6 +5,12 @@
 
 <div class="container-fluid">
 <div class="jumbotron">
+<h1>Welcome to LBDR</h1>
+= image_tag('lbdr.svg')
+
+.col-md-12
+  = select_tag 'set_locale', options_for_select(@languages), prompt: "Select language" ,:class=>"select_language", :onchange=>"getSelect(this)", :style => "background-color: #333333; color: white;"
+
 </div>
 </div>
 
@@ -15,13 +21,6 @@
 
 
 
-.col-md-12[style="text-align: center; padding-bottom: 15px;"]
-  = select_tag 'set_locale', options_for_select(@languages), prompt: "Select language" ,:class=>"select_language", :onchange=>"getSelect(this)", :style => "background-color: #333333; color: white; padding-bottom: 5px;"
 
-
-
-<style>
-
-
-
-</style>
+  <br>
+  <br>
