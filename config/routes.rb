@@ -40,5 +40,5 @@ Rails.application.routes.draw do
   scope '/:locale' do
     get 'contact-us-new' => 'contact_us/contacts#new', :path => 'contact_us_new'
   end
-  root 'pages#welcome'
+  root 'pages#welcome', :path => '/:locale/'
 end
