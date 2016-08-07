@@ -37,6 +37,8 @@ Rails.application.routes.draw do
     ActiveAdmin.routes(self)
   end
 root to: redirect("/#{I18n.default_locale}", status: 302), as: :redirected_root
+
+
   scope '/:locale' do
     get 'contact-us-new' => 'contact_us/contacts#new', :path => 'contact_us_new'
   end
