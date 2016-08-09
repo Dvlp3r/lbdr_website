@@ -1,8 +1,11 @@
 .banner
-  .banner-body
-    - @banners.each do |banner|
-      .banner-content style='background-image: url("#{banner.photo(:big)}");'
-  
+  - if @banners.count == 1
+      = image_tag @banners.first.photo(:big), style: 'width: 100%; height: 610px;'
+  - else
+    .banner-body
+      - @banners.each do |banner|
+        .banner-content style='background-image: url("#{banner.photo(:big)}");'
+
   = render partial: 'shared/logo_information'
 
   .arrow
@@ -41,12 +44,12 @@
     .pills-center
       ul#tabs.nav data-tabs="pills"
         li.active
-          a data-toggle="pill" href="#executive_committee" id="executive-committee"  
+          a data-toggle="pill" href="#executive_committee" id="executive-committee"
             span Executive Committee
             span.arrow_board >>
         li
-          a data-toggle="pill" href="#board_of_directors"  
-            span Board of Directors 
+          a data-toggle="pill" href="#board_of_directors"
+            span Board of Directors
             span.arrow_board >>
 
 
@@ -54,12 +57,12 @@
         #executive_committee.tab-pane.fade.in.active
           .governance-description.col-md-12
             - unless @group.blank?
-              = @group.get_executive_committee_description(params[:locale]) 
+              = @group.get_executive_committee_description(params[:locale])
           .row
             .col-md-12
               - @executive_committee.each do |exec|
                 .people.col-md-3
-                  = link_to "#{executive_path(exec)}" do 
+                  = link_to "#{executive_path(exec)}" do
                     .group-image style='background-image: url("#{exec.photo(:thumb)}")'
                     h4 = "#{exec.get_first_name(params[:locale])} #{exec.get_last_name(params[:locale])}"
                     p =exec.position
@@ -68,7 +71,7 @@
           .governance-description.col-md-12
             - unless @group.blank?
               = @group.get_board_of_directors_description(params[:locale])
-          
+
           .row
             .col-md-12
               - @board_of_directors.each do |board|
