@@ -320,8 +320,8 @@ li.active a {
     outline-offset:0px !important;
   }
   /*home page responsive css */
-  .banner .banner-body .banner-content {
-    min-height:400px !important;
+  .banner .banner-body .banner-content, .banner.brand-banner .banner-body-hide-slider .banner-content {
+    min-height:500px !important; background-size: cover !important;
   }
   .banner img {
     height:350px !important;
@@ -468,7 +468,7 @@ li.active a {
 
 @media (max-width:350px){
   .banner .banner-body .banner-content {
-    min-height:400px !important;
+    min-height:500px !important;
   }
 }
 #myNavmenu { float: left; margin: 0px 0 0 0; padding: 19px 0 0 0;}

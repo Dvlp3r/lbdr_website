@@ -219,12 +219,12 @@ h1 {
   }
   .banner.brand-banner{
     .banner-body-hide-slider{
-      min-height:420px !important;
+      min-height:500px !important;
       .banner-content {
         background-repeat: no-repeat;
-        background-size: 100% 100%;
+        background-size: cover;
         height:auto !important;
-        min-height: 400px !important;
+        min-height: 500px !important;
       }
     }
   }
