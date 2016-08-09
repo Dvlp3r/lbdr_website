@@ -11,35 +11,14 @@
     h1 News.
     <center>
       <ul class="nav nav-tabs">
-        <li><a data-toggle="tab" href="#press">Press</a></li>
-        <li><a data-toggle="tab" href="#blog">Blog</a></li>
-        <li><a data-toggle="tab" href="#social">Social</a></li>
+       - @post_categories.each do |category|
+         li =link_to posts_path(post_category_id: category.id), "data-toggle"=> "tab", remote: true, id: "category#{category.id}" do
+            = category.name
       </ul>
 
       <div class="tab-content">
-        <div id="press" class="tab-pane fade in active">
-        ul
-          - @posts.each_with_index do |post, i|
-            li
-              h2 =post.get_title(params[:locale])
-              h3 =post.get_author(params[:locale])
-              h4 =post.created_at.strftime('%B %e, %Y')
-              p = sanitize(post.get_content(params[:locale]))
-              div id="viewdetails#{i}" class="collapse"
-                p =post.get_content(params[:locale])
-              = link_to '', "javascript:void(0);" , class: 'btn btn-default', 'data-toggle': 'collapse', 'data-target': '#viewdetails' + i.to_s
-
-        = paginate @posts
+        <div id="posts" class="tab-pane fade in active">
+          = render partial: 'posts'
         </div>
-        <div id="blog" class="tab-pane fade">
-          <h3>Blog Posts will Populate here</h3>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-        <div id="social" class="tab-pane fade">
-          <h3Social Posts will populate here</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-        </div>
-
       </div>
-
 </center>

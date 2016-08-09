@@ -1,13 +1,17 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except:[:show, :index]
-  
+
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.page(params[:page]).per(5)
-
-    @banners = PostBanner.order("id" => "desc").all
+    @post_categories = PostCategory.order(:name)
+    if params[:post_category_id].present?
+      @posts = Post.where(post_category_id: params[:post_category_id]).page(params[:page]).per(5)
+    else
+      @posts = Post.where(post_category_id: @post_categories.first.try(:id)).page(params[:page]).per(5)
+    end
+    @banners = PostBanner.order("id" => "desc").all    
   end
 
   # GET /posts/1
