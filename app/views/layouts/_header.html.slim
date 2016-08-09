@@ -9,6 +9,7 @@ nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" 
     li = link_to 'New investments', new_investment_page_path
     li = link_to 'News', posts_path
     li = link_to 'Contact', contact_us_new_path
+    li = Connector.try(:first).try(:header).try(:html_safe)
 
   .follow-me-icons.header_social
     .social-icons-content

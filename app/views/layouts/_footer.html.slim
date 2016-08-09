@@ -1,6 +1,6 @@
 footer#footer
-
   .footer1
+    section = Connector.try(:first).try(:footer).try(:html_safe)
     .container
       .row
         .col-md-2 &nbsp;
@@ -32,7 +32,7 @@ footer#footer
                 p
 
                 strong Middle East
-                p 
+                p
 
 
           .col-md-3.col-sm-4.widget
