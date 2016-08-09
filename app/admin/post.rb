@@ -1,5 +1,5 @@
 ActiveAdmin.register Post do
-  permit_params :es_title, :es_author, :es_content,:tr_title, :tr_author, :tr_content,:en_title, :en_author, :en_content
+  permit_params :post_category_id,:es_title, :es_author, :es_content,:tr_title, :tr_author, :tr_content,:en_title, :en_author, :en_content
   menu parent: "News", priority: 1, label: "Post"
 
   filter :en_title
@@ -8,6 +8,7 @@ ActiveAdmin.register Post do
 
   index do
     selectable_column
+    column :post_category
     column :en_title
     column :en_author
     actions
@@ -22,6 +23,7 @@ ActiveAdmin.register Post do
 
   form do |f|
     f.inputs 'Post' do
+      f.input :post_category, as: :select, collection: PostCategory.order(:name)
       f.input :en_title, label: 'Title in English'
       f.input :es_title, label: 'Title in Spanish'
       f.input :tr_title, label: 'Title in Turkish'
