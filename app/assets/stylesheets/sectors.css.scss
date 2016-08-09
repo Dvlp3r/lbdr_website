@@ -322,7 +322,9 @@ li.active a {
   .banner .banner-body .banner-content {
     min-height:600px !important;
   }
-
+  .sectors .sector-row, .sectors .row { margin: 0px !important;}
+  .sectors .styled-div { width: 100%;}
+  .sectors .pull-left { width: 100%;}
   .slick-track {
     top:0px !important;
   }
