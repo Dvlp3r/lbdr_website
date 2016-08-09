@@ -8,7 +8,7 @@
           .banner-content style='background-image: url("#{banner.photo(:big)}");'
       - else
         .banner-content style='background-image: url("#{banner.sector.sector_photo(:big)}");'
-  
+
   .logo-information
     .col-md-10.slider_leftpart
       .col-md-3.text-left
@@ -23,17 +23,17 @@
                 p = @new_investment.get_description(params[:locale])  unless @new_investment.blank?
                 - unless index.eql?(0)
                   .info-sector
-                    = link_to 'More Info', new_investments_path, class: 'btn btn-green button'  
+                    = link_to 'More Info', new_investments_path, class: 'btn btn-green button'
             - else
               .title
                 h1 = banner.get_title(params[:locale])
-              .desc
+              .desc.banner_title
                 p = banner.get_description(params[:locale])
                 - unless index.eql?(0)
                   .info-sector
                     = link_to 'More Info', banner.sector, class: 'btn btn-green button'
     .col-md-2.text-left
-    
+
   .arrow
     .arrow-click
       .arrow-in

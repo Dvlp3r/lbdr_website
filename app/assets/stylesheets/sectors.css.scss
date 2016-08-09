@@ -299,9 +299,6 @@ li.active a {
     outline:none !important;
     outline-offset:0px !important;
   }
-  #myNavmenu .sidebar-logo-show img {
-    margin: 3px 0 8% 5% !important; 
-  }
   #nav-icon1.nav-in {
     margin: 20px 0 0 30px !important;
   }
@@ -455,13 +452,7 @@ li.active a {
     box-shadow:none !important
   }
 
-  .carousel-caption.mylink span {
-    width: 160px !important;
-    font-size: 13px !important;
-    display: table-cell !important;
-    padding: 12px 30px !important;
-    vertical-align: middle !important;
-  }
+  .carousel-caption.mylink span { width: 160px !important; font-size: 13px !important; display: inline-block !important !important; padding: 12px 30px !important; vertical-align: middle !important; height:auto !important;}
   p {
     font-size:18px !important
   }
@@ -471,4 +462,23 @@ li.active a {
   .banner .banner-body .banner-content {
     min-height:482px !important;
   }
+}
+#myNavmenu { float: left; margin: 0px 0 0 0; padding: 19px 0 0 0;}
+#nav-icon1.nav-in { float:left;  margin: 3px 0px 0 30px !important;}
+#myNavmenu .sidebar-logo-show1 { float: left; width: 145px !important; font-size: 0px; margin: 0 0 0 10px !important;}
+#myNavmenu .sidebar-logo-show1 img { width:100% !important; margin:0 0 0 0 !important;}
+
+.news ul li { float:none; display:inline-block !important; margin-top:0;}
+.news h1 { text-align:center !important}
+.body-padding { padding-top:0 !important;}
+.open .sidebar-logo-show1 img {
+  display:none !important;
+}
+.banner .banner-body {
+  min-height: inherit !important;
+}
+.desc.banner_title p {
+    border-left: 5px solid #fff;
+    line-height: 24px;
+    padding: 10px 0 10px 20px;
 }

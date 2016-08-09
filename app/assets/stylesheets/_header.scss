@@ -339,7 +339,7 @@ button.navbar-toggle:hover {
     font-weight: bolder;
     border: 2px solid white;
     text-transform: uppercase;
-    display: inline-flex;
+    display: inline-block;
     justify-content: center;
     align-content: center;
     flex-direction: column;
@@ -427,10 +427,6 @@ button.navbar-toggle:hover {
 @media (min-width: 840px){
   .sidebar-logo-show1 {
 
-    img{
-      width: 58%;
-      margin: 3px 0 8% 5% !important;
-    }
   }
 }
   .sidebar-logo-hide {
