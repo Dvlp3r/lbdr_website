@@ -1,19 +1,32 @@
-.banner
+<br>
+<br>
+<br>
 
-  .banner-body
-    .banner-content style='background-image: url(#{image_path "world-map.jpg"})'
 
-  .arrow
-    .arrow-click
-      .arrow-in
+<div class="fluid-container">
+<div class="jumbotron">
+<center>
+= image_tag('lbdr.svg')
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-.container.section[style="box-sizing: border-box; position: relative; font-family: Arial,sans-serif;"]
-  
-  h1[class=".b-lang lang"]
-    span= "Welcome to Lbdr"
-    
-  h4[style="padding: 10px 10px 0px 10px; text-align: center;"]
-    span= "select your language"
-    
-  .col-md-12[style="text-align: center; padding-bottom: 15px;"] 
-    = select_tag 'set_locale', options_for_select(@languages), prompt: "Select language" ,:class=>"select_language", :onchange=>"getSelect(this)", :style => "background-color: #333333; color: white; padding-bottom: 5px;"
+<h3>Please select your preferred language</h3>
+
+.col-md-12
+  = select_tag 'set_locale', options_for_select(@languages), prompt: "Select language" ,:class=>"select_language", :onchange=>"getSelect(this)", :style => "background-color: #333333; color: white;"
+
+</center>
+
+
+</div>
+</div>
+<br>
+<br>
+<br>

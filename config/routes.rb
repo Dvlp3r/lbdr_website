@@ -24,9 +24,9 @@ Rails.application.routes.draw do
     get 'new_investment_page' => 'new_investments#index', :path => 'new-investment'
 
     get 'investors_page' => 'investors#index', :path => 'investors'
-    
+
     get 'board_member' => 'pages#board_member', :path => '/board_member/:id'
-    
+
     get 'executive' => 'pages#executive', :path => '/executive/:id'
 
     get 'language' => 'pages#language', :path => 'language'
@@ -36,9 +36,12 @@ Rails.application.routes.draw do
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
   end
+root to: redirect("/#{I18n.default_locale}", status: 302), as: :redirected_root
+
 
   scope '/:locale' do
     get 'contact-us-new' => 'contact_us/contacts#new', :path => 'contact_us_new'
   end
-  root 'pages#language'
+
+
 end

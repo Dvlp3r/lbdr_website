@@ -167,7 +167,7 @@ button.navbar-toggle:hover {
     .banner-description{
       .title{
         h1{
-          font-weight: bold; 
+          font-weight: bold;
           font-size:35px !important;
         }
         h2{
@@ -186,7 +186,7 @@ button.navbar-toggle:hover {
 
       .desc{
         h1{
-          font-weight: bold; 
+          font-weight: bold;
           font-size:23px !important;
         }
         h2{
@@ -412,20 +412,27 @@ button.navbar-toggle:hover {
       width: 65%;
       margin: 16% 16% 0 16%;
     }
-
-    @media (min-width: $screen-md-min){
-
-    }
   }
 
-  .sidebar-logo-show {
+    @media (max-width: 640px){
+      .sidebar-logo-show1 {
+
+        img{
+          width: 58%;
+          margin: 28px 0 8% 5% !important;
+        }
+      }
+    }
+
+@media (min-width: 840px){
+  .sidebar-logo-show1 {
 
     img{
       width: 58%;
-      margin: -26px 0 8% 5%;
+      margin: 3px 0 8% 5% !important;
     }
   }
-
+}
   .sidebar-logo-hide {
     display: none;
   }
@@ -455,7 +462,7 @@ button.navbar-toggle:hover {
 
 //hamburger
 #nav-icon1-hide {
-  display: none;  
+  display: none;
 }
 
 #nav-icon1 {
