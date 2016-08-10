@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160806235504) do
+ActiveRecord::Schema.define(version: 20160809131324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,6 +129,13 @@ ActiveRecord::Schema.define(version: 20160806235504) do
     t.string   "tr_name"
     t.index ["new_investment_id"], name: "index_brands_on_new_investment_id", using: :btree
     t.index ["sector_id"], name: "index_brands_on_sector_id", using: :btree
+  end
+
+  create_table "connectors", force: :cascade do |t|
+    t.text     "header"
+    t.text     "footer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "contents", force: :cascade do |t|
@@ -290,18 +297,25 @@ ActiveRecord::Schema.define(version: 20160806235504) do
     t.string   "tr_title"
   end
 
+  create_table "post_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "en_title"
     t.string   "en_author"
     t.text     "en_content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.text     "es_content"
     t.text     "tr_content"
     t.string   "es_title"
     t.string   "tr_title"
     t.string   "es_author"
     t.string   "tr_author"
+    t.integer  "post_category_id"
   end
 
   create_table "sector_banners", force: :cascade do |t|
