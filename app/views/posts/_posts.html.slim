@@ -4,7 +4,7 @@ ul
       h2 =post.get_title(params[:locale])
       h3 =post.get_author(params[:locale])
       h4 =post.created_at.strftime('%B %e, %Y')
-      p = sanitize(post.get_content(params[:locale]))
+      
       div id="viewdetails#{i}" class="collapse"
         p =post.get_content(params[:locale])
       = link_to '', "javascript:void(0);" , class: 'btn btn-default', 'data-toggle': 'collapse', 'data-target': '#viewdetails' + i.to_s

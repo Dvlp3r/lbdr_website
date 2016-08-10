@@ -34,7 +34,7 @@ module CommonMethods
   end
 
   def get_spirit(locale)
-    (send("#{locale}_spirit") || en_spirit).to_s.html_safe rescue nil    
+    (send("#{locale}_spirit") || en_spirit).to_s.html_safe rescue nil
   end
 
   def get_executive_committee_description(locale)
@@ -55,13 +55,13 @@ module CommonMethods
 
   def get_position(locale)
     (send("#{locale}_position") || en_position).to_s.html_safe rescue nil
-  end 
+  end
 
   def get_author(locale)
     (send("#{locale}_position") || en_position).to_s.html_safe rescue nil
   end
 
   def get_content(locale)
-    (send("#{locale}_position") || en_position).to_s.html_safe rescue nil
-  end 
+    (send("#{locale}_content") || en_content).to_s.html_safe rescue nil
+  end
 end
