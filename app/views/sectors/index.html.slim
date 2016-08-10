@@ -22,11 +22,11 @@
           =link_to sector do
               .row.sector-img
                 .col-md-6.col-ms-6.styled-div style='background-image: url("#{sector.sector_photo(:big)}");'
-
                 .col-md-6.col-ms-6
                   h1 =sanitize(sector.get_name(params[:locale]))
                   p =sanitize(sector.get_description(params[:locale]), :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
                   .btn.button[style="width: 126px; font-size: 20px;" href="#{sector_path(sector)}"] ="Learn More.."
+
           end
 
         - else
@@ -40,15 +40,16 @@
 
 
 
+
           end
 
       =link_to new_investment_page_path do
           .row.sector-img
             .col-md-6.col-ms-6.styled-div style='background-image: url("#{@new_investment.photo(:big)}");'
-
             .col-md-6.col-ms-6
               h1 = sanitize(@new_investment.get_title(params[:locale]))
               p =sanitize(@new_investment.get_description(params[:locale]), :tags=>[]).truncate(230, :separator => " ").try(:html_safe)
               .btn.button[style="width: 126px; font-size: 20px;" href="#{new_investment_page_path}"] ="Learn More.."
+
 
       end
