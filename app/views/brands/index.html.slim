@@ -5,26 +5,26 @@
 
   = render partial: 'shared/logo_information'
 
-
+<br>
 .list-unstyled.brand-tabs#brand_courssel
 
   - @sectors.each do |sector|
     .col-8
       a data-toggle="pill" href="#temp_#{sector.id}" style='background-image: url("#{sector.sector_photo(:big)}");'
         span link-to="#{'/sectors/' + sector.id.to_s}"
-          =sector.get_name(params[:locale]) 
-      
+          =sector.get_name(params[:locale])
+
       h3 =sector.get_name(params[:locale])
 
   .col-8
       a data-toggle="pill" href="#temp_#{@new_investment.id}" style='background-image: url("#{@new_investment.photo(:big)}");'
         span link-to="#{'/new_investment' }"
           =@new_investment.get_title(params[:locale])
-      
+
       h3 =@new_investment.get_title(params[:locale])
-      
-  
-.container.brand 
+
+
+.container.brand
   .tab-content.col-md-8.col-md-offset-2
     - @sectors.each do |sector|
       div id="#temp_#{sector.id}" class="tab-pane-brand_courssel brand-tab"
@@ -37,7 +37,7 @@
               -if (i==0)
                 .col-md-2
 
-                .col-md-4 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)      
+                .col-md-4 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)
               -else
                 .col-md-4 = link_to image_tag(var.brand.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var.brand)
             -elsif(@sector_brands.length == 1)
@@ -47,8 +47,7 @@
     div id="#temp_#{@new_investment.id}" class="tab-pane-brand_courssel brand-tab"
         - Brand.all.where(new_investment_id: @new_investment.id).each do |var|
           -unless var.nil?
-            .col-md-4 = link_to image_tag(var.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var)      
+            .col-md-4 = link_to image_tag(var.logo_for_brand.url(:thumb), class:'brand-logo-thumb'), brand_path(var)
   br
   br
   br
-
