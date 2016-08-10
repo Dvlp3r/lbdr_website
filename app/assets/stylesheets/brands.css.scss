@@ -215,6 +215,7 @@ img.brand-logo-thumb2 {
 
   .banner-content{
     height: 70vh !important;
-    min-height: inherit !important;
+    background-size: cover;
+    min-height: 800px !important;
   }
 }
