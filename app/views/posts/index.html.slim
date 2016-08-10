@@ -1,6 +1,6 @@
 .banner.brand-banner
-  - if @banners.count == 1
-      = image_tag @banners.first.photo(:big), style: 'width: 100%; height: 610px;'
+  - if @banners.count == 1      
+      .single-img style='background-image: url("#{@banners.first.photo(:big)}");'
   - else
     .banner-body
       - @banners.each do |banner|

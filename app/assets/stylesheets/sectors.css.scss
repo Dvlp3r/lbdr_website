@@ -319,6 +319,7 @@ li.active a {
     outline:none !important;
     outline-offset:0px !important;
   }
+  body.canvas-slid .wrapper-main { overflow: hidden; position: fixed;}
   /*home page responsive css */
   .banner .banner-body .banner-content, .banner.brand-banner .banner-body-hide-slider .banner-content {
     min-height:500px !important; background-size: cover !important;

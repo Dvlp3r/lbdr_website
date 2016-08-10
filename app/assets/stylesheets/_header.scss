@@ -13,6 +13,10 @@
   color: $black;
 }
 
+.single-img{
+  background-size: cover;
+  min-height: 670px;
+}
 
 button.navbar-toggle{
   border: none;
@@ -417,7 +421,7 @@ button.navbar-toggle:hover {
       .sidebar-logo-show1 {
 
         img{
-          width: 58%;          
+          width: 58%;
         }
       }
     }
