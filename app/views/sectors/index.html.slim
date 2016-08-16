@@ -1,8 +1,7 @@
-.banner
+.banner.brand-banner
 
-  .banner-body
-    - @banners.each do |banner|
-      .banner-content style='background-image: url("#{banner.photo(:big)}");'
+  .banner-body-hide-slider
+    .banner-content style='background-image: url("#{@banners[0].photo(:big)}");'
 
   = render partial: 'shared/logo_information'
 
