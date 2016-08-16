@@ -1,5 +1,5 @@
 .banner
-  .banner-body
+  .banner-body-hide-slider
     - unless @investor_content.nil?
       .banner-content style='background-image: url("#{@investor_content.photo(:big)}");'
   .logo-information
@@ -9,7 +9,7 @@
         .banner-description.hide
           .title
             h1 = "Investors"
-              
+
     .col-md-2.text-left
 
   .arrow
@@ -33,7 +33,7 @@
       #profile.tab-pane
         - unless @investor_content.blank?
           h1 = @investor_content.get_title(params[:locale])
-          p = @investor_content.get_description(params[:locale]) 
+          p = @investor_content.get_description(params[:locale])
 
       #shareholders.tab-pane.active
         .row
@@ -48,8 +48,6 @@
       #investment.tab-pane
         - unless @new_investment.blank?
           h1 = @new_investment.get_title(params[:locale])
-          p = @new_investment.get_description(params[:locale])       
+          p = @new_investment.get_description(params[:locale])
 
 div style="clear:both"
-
-
