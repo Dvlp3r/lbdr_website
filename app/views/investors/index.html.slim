@@ -2,13 +2,6 @@
   - unless @investor_content.nil?
     .single-img style='background-image: url("#{@investor_content.photo(:big)}");'
 
-      .banner
-        - if @banners.count == 1
-            .single-img style='background-image: url("#{@banners.first.photo(:big)}");'
-        - else
-          .banner-body
-            - @banners.each do |banner|
-              .banner-content style='background-image: url("#{banner.photo(:big)}");'
 
   .logo-information
     .col-md-10.slider_leftpart
