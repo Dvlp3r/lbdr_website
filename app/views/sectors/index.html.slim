@@ -1,6 +1,10 @@
 .banner
-    .banner-content style='background-image: url("#{@banners[0].photo(:big)}");'
-    
+  - if @banners.count == 1
+      .single-img style='background-image: url("#{@banners.first.photo(:big)}");'
+  - else
+    .banner-body
+      - @banners.each do |banner|
+        .banner-content style='background-image: url("#{banner.photo(:big)}");'
 
   = render partial: 'shared/logo_information'
 
