@@ -1,6 +1,5 @@
-.banner.brand-banner
-  .banner-body-hide-slider
-    .banner-content style='background-image: url("#{@banners[0].photo(:big)}");'
+.banner
+    .single-img style='background-image: url("#{@banners.first.photo(:big)}");'
 
   = render partial: 'shared/logo_information'
 
