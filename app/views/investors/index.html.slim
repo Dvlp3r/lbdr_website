@@ -1,10 +1,8 @@
 .banner
-  - if @banners.count == 1
-      .single-img style='background-image: url("#{@banners.first.photo(:big)}");'
-  - else
-    .banner-body
-      - @banners.each do |banner|
-        .banner-content style='background-image: url("#{banner.photo(:big)}");'
+  .banner-body-hide-slider
+    - unless @investor_content.nil?
+      .banner-content style='background-image: url("#{@investor_content.photo(:big)}");'
+      
   .logo-information
     .col-md-10.slider_leftpart
       .col-md-3.text-left
