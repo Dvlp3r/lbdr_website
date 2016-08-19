@@ -3,9 +3,9 @@ footer#footer
     section = Connector.try(:first).try(:footer).try(:html_safe)
     .container
       .row
-        .col-md-2 &nbsp;
-        .col-md-8
-          .col-md-4.col-sm-4.widget
+
+        .col-md-12
+          .col-md-2.col-sm-12.widget
             h3.widget-title
             .widget-body
               ul.footer_menu
@@ -18,24 +18,47 @@ footer#footer
                 li = link_to 'LOGIN', admin_root_path, :class => "highlight-green"
                 li = link_to 'Language', language_path
 
-          .col-md-4.col-sm-4.widget
+          .col-md-3.col-sm-12.widget
             h3.widget-title
             .widget-body
               .footer_address
-                strong USA Headquarters
-                p 650 West Ave 803 Miami Beach, FL 33139
+              strong Europe
+              br
+              <u>LBDR Group EU</u>
+              br
+              <b>Le Monte Carlo Sun, sis 74, 9e Etage Boulevard d’Italie, MC 98000</b>
+              br
+              Monaco
+              <a href="mailto:monaco@lbdrgroup.com">monaco@lbdrgroup.com</a> 
 
-                strong LBDR Real Estate Group Inc.
-                p 2300 East Los Olas Blvd, 2nd Floor NW, Fort Lauderdale, FL 33301
+          .col-md-2.col-sm-12.widget
+            h3.widget-title
+            .widget-body
+              .footer_address
+              strong The Americas
+              br
+              <u> LBDR Group Inc.</u>
+              br
+              <b>2300 East Los Olas Blvd, 2nd Floor NW, Fort Lauderdale, FL 33301</b>
+              br
+              <a href="mailto:info@lbdrgroup.com">info@lbdrgroup.com</a>
 
-                strong Europe
-                p
+          .col-md-3.col-sm-12.widget
+            h3.widget-title
+            .widget-body
+              .footer_address
+              strong East Europe - Turkey
+              br
+              <u>LBDR Group Yatirim A.S.</u>
+              br
+              <b>Munir Nurettin Selcuk Cad. Aripek No 22 D 1</b>
+              br
+              <b>Kalamis - Kadikoy - Istanbul</b>
+              br
+              <a href="mailto:turkey@lbdrgroup.com">turkey@lbdrgroup.com</a>
 
-                strong Middle East
-                p
 
-
-          .col-md-3.col-sm-4.widget
+          .col-md-2.col-sm-12.widget
             h3.widget-title
             .widget-body
               .follow-me-icons.text-right
@@ -56,6 +79,3 @@ footer#footer
                   <a style="padding-right:5px" href="/es"><img style="height:14px;" src="http://i.imgur.com/AWsdC7L.png",  class="img-responsive-footer"></a>
                 </center>
               p.copyright.text-right &copy; LBDR Group 2016
-
-
-        .col-md-2 &nbsp;
